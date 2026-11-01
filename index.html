@@ -338,17 +338,28 @@
         </div>
     </section>
 
-    <!-- WALLET TAB -->
+   <!-- WALLET TAB -->
     <section id="wallet" class="tab-content hidden p-4 max-w-md mx-auto w-full">
         <h2 class="text-xl font-bold text-[#087E8B] mb-4">Wallet & Withdrawals</h2>
+        
+        <!-- Teeno boxes ab Wallet mein aa gaye hain -->
+        <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-cyan text-center">
+                <h3 class="text-gray-500 text-[10px] font-semibold truncate">💳 Cash</h3>
+                <p class="text-lg font-bold text-gray-800 mt-1">₹<span id="wallet-display">0.00</span></p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-royalblue text-center">
+                <h3 class="text-gray-500 text-[10px] font-semibold truncate">✅ Tasks</h3>
+                <p class="text-lg font-bold text-gray-800 mt-1">0</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-cyan text-center">
+                <h3 class="text-gray-500 text-[10px] font-semibold truncate">⏳ Pending</h3>
+                <p class="text-lg font-bold text-gray-800 mt-1">₹<span id="pending-display">0.00</span></p>
+            </div>
+        </div>
+
         <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
             <h3 class="font-bold text-slate-800 mb-4">Withdraw Funds</h3>
-            
-            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 mb-5 text-center">
-                <p class="text-xs text-gray-500 mb-1">Available Cash Balance</p>
-                <p class="text-3xl font-extrabold text-slate-800">₹<span id="wallet-display">0.00</span></p>
-            </div>
-
             <div class="mb-4">
                 <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Payment Method</label>
                 <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm font-medium text-gray-700 bg-white focus:outline-none focus:border-[#087E8B]">
