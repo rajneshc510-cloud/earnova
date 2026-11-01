@@ -115,111 +115,92 @@
 <!-- Main Content -->
 <main class="max-w-7xl mx-auto px-4 py-8">
     
-    <!-- DASHBOARD TAB -->
-    <section id="dashboard" class="tab-content active space-y-6 md:space-y-12">
+<!-- DASHBOARD TAB -->
+    <section id="dashboard" class="tab-content active space-y-4 md:space-y-8">
         
-        <!-- Welcome Greeting Banner -->
-        <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
-            <h1 class="text-xl md:text-3xl font-extrabold text-[#087E8B]">Welcome, <span id="user-name-display">Guest</span>! 👋</h1>
-            <span class="text-[10px] md:text-xs bg-cyan-50 text-[#087E8B] font-bold px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-cyan-100 whitespace-nowrap">Active</span>
-        </div>
-
-        <!-- HERO BANNER SECTION (Mobile Friendly) -->
-        <div class="relative bg-slate-900 text-white rounded-2xl md:rounded-3xl overflow-hidden p-6 md:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between">
-            <div class="absolute inset-0 opacity-15 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
-
-            <div class="relative z-10 max-w-xl space-y-4 md:space-y-6 text-center md:text-left">
-                <h2 class="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">
-                    Welcome to Earnova, <br>
-                    Your <span class="text-amber-400">Financial Future.</span>
-                </h2>
-                <p class="text-gray-300 text-xs sm:text-sm md:text-lg">
-                    Discover limitless opportunities to earn, learn, and grow, all from the comfort of your home.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-3 pt-2">
-                    <button onclick="showTab('tasks')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-lg transition text-sm md:text-base">
-                        Start Earning Now
-                    </button>
-                    <button onclick="showTab('tasks')" class="border border-white/40 hover:bg-white/10 text-white font-bold px-6 py-3 md:px-8 md:py-3.5 rounded-full transition text-sm md:text-base">
-                        Explore Top Tasks
-                    </button>
+        <!-- COMPACT HERO BANNER (Super Mobile Friendly) -->
+        <div class="relative bg-slate-900 text-white rounded-2xl md:rounded-3xl overflow-hidden p-5 md:p-10 shadow-lg">
+            <div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80');"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="inline-block bg-[#087E8B]/30 text-cyan-300 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">
+                        Welcome, <span id="user-name-display">Guest</span>! 👋
+                    </div>
+                    <h2 class="text-xl sm:text-2xl md:text-4xl font-black leading-snug">
+                        Your <span class="text-amber-400">Financial Future</span> Starts Here
+                    </h2>
+                    <p class="text-gray-300 text-xs md:text-sm max-w-md">
+                        Complete simple tasks, play lucky spin & earn daily instant UPI payouts from home.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-2 pt-2">
+                        <button onclick="showTab('tasks')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-5 py-2.5 rounded-full shadow-md transition text-xs md:text-sm">
+                            Start Earning Now ➔
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Right Side Graphic Badge -->
-            <div class="relative z-10 mt-6 md:mt-0 flex items-center justify-center">
-                <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-64 md:h-64 rounded-full bg-gradient-to-tr from-[#087E8B] to-amber-400 p-1 shadow-inner opacity-90 flex items-center justify-center">
-                    <div class="w-full h-full bg-slate-900 rounded-full flex flex-col items-center justify-center text-center p-4">
-                        <span class="text-2xl md:text-4xl mb-1">🚀</span>
-                        <span class="font-black text-sm md:text-lg text-white">Earn Daily</span>
-                        <span class="text-[10px] md:text-xs text-amber-400 font-semibold">Instant UPI Payouts</span>
+                <!-- Small Badge Graphic for Mobile -->
+                <div class="hidden sm:flex w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-tr from-[#087E8B] to-amber-400 p-0.5 shrink-0 items-center justify-center">
+                    <div class="w-full h-full bg-slate-900 rounded-full flex flex-col items-center justify-center text-center p-2">
+                        <span class="text-xl md:text-2xl">🚀</span>
+                        <span class="font-bold text-[10px] md:text-xs text-white mt-1">Instant Payouts</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PREMIUM FEATURES GRID (Responsive 2-cols on mobile, 4 on desktop) -->
+        <!-- PREMIUM FEATURES GRID (Compact 2-Cols on Mobile) -->
         <div>
-            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 md:mb-6">Premium Features</h3>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                <div onclick="showTab('tasks')" class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer group">
-                    <div class="flex items-center justify-between mb-2 md:mb-4">
-                        <span class="text-2xl md:text-3xl">🚀</span>
-                        <span class="text-[9px] md:text-xs bg-orange-50 text-orange-600 font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full">Popular</span>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-sm md:text-lg group-hover:text-[#087E8B] transition">High-Paying Tasks</h4>
-                    <p class="text-[11px] md:text-xs text-gray-500 mt-1">Complete app setup & earn cash.</p>
+            <h3 class="text-base md:text-xl font-bold text-slate-800 mb-3">Quick Navigation</h3>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div onclick="showTab('tasks')" class="bg-white p-3.5 md:p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow transition cursor-pointer">
+                    <div class="text-xl md:text-2xl mb-1">🚀</div>
+                    <h4 class="font-bold text-slate-800 text-xs md:text-sm">High-Paying Tasks</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Setup apps & earn cash.</p>
                 </div>
 
-                <div onclick="showTab('spin')" class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer group">
-                    <div class="flex items-center justify-between mb-2 md:mb-4">
-                        <span class="text-2xl md:text-3xl">🎡</span>
-                        <span class="text-[9px] md:text-xs bg-yellow-50 text-yellow-600 font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full">Lucky</span>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-sm md:text-lg group-hover:text-[#087E8B] transition">Lucky Spin & Win</h4>
-                    <p class="text-[11px] md:text-xs text-gray-500 mt-1">Spin the wheel daily for rewards.</p>
+                <div onclick="showTab('spin')" class="bg-white p-3.5 md:p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow transition cursor-pointer">
+                    <div class="text-xl md:text-2xl mb-1">🎡</div>
+                    <h4 class="font-bold text-slate-800 text-xs md:text-sm">Lucky Spin & Win</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Spin daily for rewards.</p>
                 </div>
 
-                <div onclick="showTab('spin')" class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer group">
-                    <div class="flex items-center justify-between mb-2 md:mb-4">
-                        <span class="text-2xl md:text-3xl">📅</span>
-                        <span class="text-[9px] md:text-xs bg-emerald-50 text-emerald-600 font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full">Daily</span>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-sm md:text-lg group-hover:text-[#087E8B] transition">Daily Check-in</h4>
-                    <p class="text-[11px] md:text-xs text-gray-500 mt-1">Claim your streak rewards daily.</p>
+                <div onclick="showTab('spin')" class="bg-white p-3.5 md:p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow transition cursor-pointer">
+                    <div class="text-xl md:text-2xl mb-1">📅</div>
+                    <h4 class="font-bold text-slate-800 text-xs md:text-sm">Daily Check-in</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Claim streak rewards.</p>
                 </div>
 
-                <div onclick="showTab('refer')" class="bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer group">
-                    <div class="flex items-center justify-between mb-2 md:mb-4">
-                        <span class="text-2xl md:text-3xl">🤝</span>
-                        <span class="text-[9px] md:text-xs bg-green-50 text-green-600 font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full">₹5/Ref</span>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-sm md:text-lg group-hover:text-[#087E8B] transition">Referral Program</h4>
-                    <p class="text-[11px] md:text-xs text-gray-500 mt-1">Invite friends and earn cash.</p>
+                <div onclick="showTab('refer')" class="bg-white p-3.5 md:p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow transition cursor-pointer">
+                    <div class="text-xl md:text-2xl mb-1">🤝</div>
+                    <h4 class="font-bold text-slate-800 text-xs md:text-sm">Referral Program</h4>
+                    <p class="text-[10px] text-gray-500 mt-0.5">Invite & earn cash bonus.</p>
                 </div>
             </div>
         </div>
 
         <!-- RECENT PAYOUTS TICKER -->
-        <div class="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 p-3 md:p-4 overflow-hidden">
-            <div class="flex items-center gap-3 md:gap-4">
-                <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-500 whitespace-nowrap bg-gray-50 px-2.5 py-1 md:px-3 md:py-1.5 rounded-lg border">Payouts</span>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-3 overflow-hidden">
+            <div class="flex items-center gap-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-gray-50 px-2 py-1 rounded border">Payouts</span>
                 <div class="ticker-wrap flex-1 overflow-hidden">
-                    <div class="ticker flex gap-6 md:gap-8 text-xs font-semibold text-gray-700">
-                        <span class="flex items-center gap-2">🟢 <b>Anwin</b> withdrew <span class="text-emerald-600 font-bold">₹150</span></span>
-                        <span class="flex items-center gap-2">🟢 <b>Sarsher</b> withdrew <span class="text-emerald-600 font-bold">₹203</span></span>
-                        <span class="flex items-center gap-2">🟢 <b>Arkiseh</b> withdrew <span class="text-emerald-600 font-bold">₹350</span></span>
-                        <span class="flex items-center gap-2">🟢 <b>Kryen</b> withdrew <span class="text-emerald-600 font-bold">₹275</span></span>
-                        <span class="flex items-center gap-2">🟢 <b>Rajnesh</b> withdrew <span class="text-emerald-600 font-bold">₹500</span></span>
+                    <div class="ticker flex gap-6 text-xs font-semibold text-gray-700">
+                        <span class="flex items-center gap-1.5">🟢 <b>Anwin</b> <span class="text-emerald-600 font-bold">₹150</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Sarsher</b> <span class="text-emerald-600 font-bold">₹203</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Arkiseh</b> <span class="text-emerald-600 font-bold">₹350</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Kryen</b> <span class="text-emerald-600 font-bold">₹275</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Rajnesh</b> <span class="text-emerald-600 font-bold">₹500</span></span>
                         <!-- Duplicate for smooth loop -->
-                        <span class="flex items-center gap-2">🟢 <b>Anwin</b> withdrew <span class="text-emerald-600 font-bold">₹150</span></span>
-                        <span class="flex items-center gap-2">🟢 <b>Sarsher</b> withdrew <span class="text-emerald-600 font-bold">₹203</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Anwin</b> <span class="text-emerald-600 font-bold">₹150</span></span>
+                        <span class="flex items-center gap-1.5">🟢 <b>Sarsher</b> <span class="text-emerald-600 font-bold">₹203</span></span>
                     </div>
                 </div>
             </div>
         </div>
 
+    </section>
+    
     </section>
     
     <!-- SPIN PAGE START -->
