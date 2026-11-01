@@ -13,9 +13,9 @@
    <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-   <script>
+    <script>
         tailwind.config = {
-            theme: { extend: { colors: { royalblue: '#1F2937', cyan: '#1F2937', } } }
+            theme: { extend: { colors: { royalblue: '#087E8B', cyan: '#087E8B', } } }
         }
     </script>
     <style>
@@ -30,14 +30,14 @@
 <body class="text-slate-800 relative">
 
 <!-- MAIN HEADER START -->
-<nav class="bg-[#1F2937] text-white shadow-lg sticky top-0 z-50">
+<nav class="bg-[#087E8B] text-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-5">
         <div class="flex flex-wrap items-center justify-between">
 
     <!-- 1. LOGO -->
         <div class="flex items-center gap-2">
            <img src="logo.png" class="h-8 w-8 rounded-full bg-white p-0.5 object-cover" alt="Earnova Logo">
-            <span class="text-xl font-bold tracking-wide">Earnova</span>
+             <span class="text-xl font-bold tracking-wide">Earnova</span>
         </div>
             
       <!-- 2. MENU -->
@@ -55,7 +55,7 @@
             
             <!-- 3. LOGIN & PROFILE -->
             <div class="flex items-center gap-2">
-                <button id="nav-login-btn" onclick="openLoginModal()" class="bg-white text-[#1F2937] font-bold px-4 py-1.5 rounded-lg shadow-md text-xs sm:text-sm hover:bg-gray-100 transition">
+                <button id="nav-login-btn" onclick="openLoginModal()" class="bg-white text-[#087E8B] font-bold px-4 py-1.5 rounded-lg shadow-md text-xs sm:text-sm hover:bg-gray-100 transition">
                     Login
                 </button>
                 
@@ -71,7 +71,7 @@
         <p id="popup-user-email" class="text-xs text-gray-500 truncate mt-0.5">guest@email.com</p>
         
         <!-- Member Since (New) -->
-        <div class="mt-3 flex items-center gap-1.5 text-[10px] font-semibold text-[#1F2937] bg-cyan-50 w-fit px-2 py-1 rounded-md border border-cyan-100">
+        <div class="mt-3 flex items-center gap-1.5 text-[10px] font-semibold text-[#087E8B] bg-cyan-50 w-fit px-2 py-1 rounded-md border border-cyan-100">
             <span>📅</span> Member since: Oct 2026
         </div>
     </div>
@@ -107,12 +107,12 @@
 <!-- MAIN HEADER END -->
     
 <!-- Main Content -->
-<main class="max-w-6xl mx-auto px-4 py-8 bg-[#F5F8FF] min-h-screen">
+<main class="max-w-6xl mx-auto px-4 py-8">
     
     <!-- DASHBOARD TAB -->
     <section id="dashboard" class="tab-content active">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-[#1F2937]">Welcome, <span id="user-name-display">Guest</span>!</h1>
+            <h1 class="text-3xl font-bold text-[#087E8B]">Welcome, <span id="user-name-display">Guest</span>!</h1>
         </div>
         
         <div class="w-full bg-gray-200 border border-gray-300 text-center py-3 mb-4 mt-2 rounded-lg shadow-inner">
@@ -124,7 +124,7 @@
                 <h3 class="text-gray-500 text-sm font-semibold">💳 Withdrawable Cash</h3>
                 <p class="text-3xl font-bold text-gray-800 mt-2">₹<span id="dashboard-balance">0.00</span></p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-[#1F2937]">
+            <div class="bg-white p-6 rounded-xl shadow border-t-4 border-[#087E8B]">
                 <h3 class="text-gray-500 text-sm font-semibold">✅ Completed Tasks</h3>
                 <p class="text-3xl font-bold text-gray-800 mt-2">0</p>
             </div>
@@ -133,7 +133,7 @@
                 <p class="text-3xl font-bold text-gray-800 mt-2">₹<span id="pending-display">0.00</span></p>
             </div>
         </div>
-        <button onclick="showTab('tasks')" class="bg-[#087E8B] hover:bg-[#1D4ED8] text-white font-bold py-3 px-6 rounded-lg shadow-md transition w-full md:w-auto">Start Earning Now ➔</button>
+        <button onclick="showTab('tasks')" class="bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3 px-6 rounded-lg shadow-md transition w-full md:w-auto">Start Earning Now ➔</button>
 
 <!-- PREMIUM DAILY SCRATCH CARD START -->
 <div class="mt-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-6 max-w-sm mx-auto lg:mx-0 w-full hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
@@ -170,44 +170,44 @@
         
 </section> 
     
- <!-- SPIN PAGE START -->
+   <!-- SPIN PAGE START -->
 <section id="spin" class="tab-content hidden">
   <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-[#1F2937] mb-2">🎡 Lucky Spin</h2>
+    <h2 class="text-3xl font-bold text-[#087E8B] mb-2">🎡 Lucky Spin</h2>
     <p class="text-gray-600 mb-5">Spin karo aur reward jeeto!</p>
 
     <div id="spin-wheel"
       class="w-56 h-56 rounded-full mx-auto flex items-center justify-center border-8 border-yellow-400 shadow-lg"
-      style="background: conic-gradient(#1F2937 0deg 60deg,#e0f2fe 60deg 120deg,#0e7490 120deg 180deg,#bae6fd 180deg 240deg,#1F2937 240deg 300deg,#e0f2fe 300deg 360deg);">
-      <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-[#1F2937]">
+      style="background: conic-gradient(#087E8B 0deg 60deg,#e0f2fe 60deg 120deg,#0e7490 120deg 180deg,#bae6fd 180deg 240deg,#087E8B 240deg 300deg,#e0f2fe 300deg 360deg);">
+      <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-[#087E8B]">
         SPIN
       </div>
     </div>
 
     <button id="spinBtn" onclick="earnovaSpin()"
-      class="mt-5 bg-[#1F2937] text-white font-bold py-3 px-10 rounded-xl shadow hover:opacity-90">
+      class="mt-5 bg-[#087E8B] text-white font-bold py-3 px-10 rounded-xl shadow hover:opacity-90">
       SPIN NOW
     </button>
-    <p id="spinResult" class="mt-3 font-semibold text-[#1F2937]"></p>
+    <p id="spinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
 
     <hr class="my-7">
 
-    <h2 class="text-2xl font-bold text-[#1F2937] mb-2">📅 Daily Check-in</h2>
+    <h2 class="text-2xl font-bold text-[#087E8B] mb-2">📅 Daily Check-in</h2>
     <p class="text-gray-600 mb-4">Roz check-in karo aur rewards pao!</p>
     <div id="checkin-streak" class="text-sm text-gray-500 mb-3">Day 1 of 7</div>
 
     <button id="checkinBtn" onclick="earnovaCheckin()"
-      class="bg-[#1F2937] text-white font-bold py-3 px-8 rounded-xl shadow hover:opacity-90">
+      class="bg-[#087E8B] text-white font-bold py-3 px-8 rounded-xl shadow hover:opacity-90">
       Claim Daily Reward
     </button>
-    <p id="checkinResult" class="mt-3 font-semibold text-[#1F2937]"></p>
+    <p id="checkinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
   </div>
 </section>
 <!-- SPIN PAGE END -->
     
     <!-- TASKS TAB -->
     <section id="tasks" class="tab-content">
-        <h2 class="text-2xl font-bold text-[#1F2937] mb-6">Earn Points & Cash</h2>
+        <h2 class="text-2xl font-bold text-[#087E8B] mb-6">Earn Points & Cash</h2>
         
         <div class="w-full bg-gray-50 border-2 border-dashed border-gray-300 p-4 mb-6 rounded-lg text-center flex flex-col justify-center items-center min-h-[90px] shadow-sm">
             <span class="text-xs uppercase tracking-widest text-gray-400 mb-1">Advertisement</span>
@@ -230,7 +230,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0 ml-2">
-                <span class="font-extrabold text-[#1F2937] text-sm mb-1.5">₹50</span>
+                <span class="font-extrabold text-[#087E8B] text-sm mb-1.5">₹50</span>
                 <button onclick="openPopup('Navi App', 50, 'https://r.navi.com/gJH5QE', 'terms-navi')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
@@ -250,7 +250,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0 ml-2">
-                <span class="font-extrabold text-[#1F2937] text-sm mb-1.5">₹15</span>
+                <span class="font-extrabold text-[#087E8B] text-sm mb-1.5">₹15</span>
                 <button onclick="openPopup('MobiKwik', 15, 'https://w6em.app.link/oeppskc3A7b', 'terms-mobi')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
@@ -270,7 +270,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0 ml-2">
-                <span class="font-extrabold text-[#1F2937] text-sm mb-1.5">₹10</span>
+                <span class="font-extrabold text-[#087E8B] text-sm mb-1.5">₹10</span>
                 <button onclick="openPopup('BHIM App', 10, 'https://bhim.onelink.me/CoHB/ry6c3l6k', 'terms-bhim')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
@@ -290,7 +290,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0 ml-2">
-                <span class="font-extrabold text-[#1F2937] text-sm mb-1.5">₹50</span>
+                <span class="font-extrabold text-[#087E8B] text-sm mb-1.5">₹50</span>
                 <button onclick="openPopup('Angel One', 50, 'https://angel-one.onelink.me/Wjgr/jmfsje9r', 'terms-angel')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
@@ -311,7 +311,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0 ml-2">
-                <span class="font-extrabold text-[#1F2937] text-sm mb-1.5">₹180</span>
+                <span class="font-extrabold text-[#087E8B] text-sm mb-1.5">₹180</span>
                 <button onclick="openPopup('Upstox App', 180, 'https://upstox.onelink.me/0H1s/8HB3UH', 'terms-upstox')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
@@ -320,7 +320,7 @@
 
     <!-- REFER TAB -->
     <section id="refer" class="tab-content hidden">
-        <h2 class="text-2xl font-bold text-[#1F2937] mb-6">Invite Friends & Earn</h2>
+        <h2 class="text-2xl font-bold text-[#087E8B] mb-6">Invite Friends & Earn</h2>
         <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border-t-4 border-green-500 text-center max-w-2xl mx-auto">
             <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 shadow-sm">🤝</div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2">Refer Friends, Earn Cash!</h3>
@@ -340,7 +340,7 @@
 
     <!-- WALLET TAB -->
     <section id="wallet" class="tab-content hidden p-4 max-w-md mx-auto w-full">
-        <h2 class="text-xl font-bold text-[#1F2937] mb-4">Wallet & Withdrawals</h2>
+        <h2 class="text-xl font-bold text-[#087E8B] mb-4">Wallet & Withdrawals</h2>
         <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
             <h3 class="font-bold text-slate-800 mb-4">Withdraw Funds</h3>
             
@@ -351,7 +351,7 @@
 
             <div class="mb-4">
                 <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Payment Method</label>
-                <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm font-medium text-gray-700 bg-white focus:outline-none focus:border-[#1F2937]">
+                <select id="paymentMethod" onchange="togglePaymentFields()" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm font-medium text-gray-700 bg-white focus:outline-none focus:border-[#087E8B]">
                     <option value="upi">UPI Transfer</option>
                     <option value="bank">Bank Transfer</option>
                 </select>
@@ -359,26 +359,26 @@
 
             <div id="upiField" class="mb-4">
                 <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">UPI ID</label>
-                <input type="text" id="upiId" placeholder="e.g. rajnesh@ybl" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#1F2937]">
+                <input type="text" id="upiId" placeholder="e.g. rajnesh@ybl" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#087E8B]">
             </div>
 
             <div id="bankFields" class="mb-4 hidden space-y-4">
                 <div>
                     <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Account Number</label>
-                    <input type="number" id="bankAcc" placeholder="Enter Bank A/c No." class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#1F2937]">
+                    <input type="number" id="bankAcc" placeholder="Enter Bank A/c No." class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#087E8B]">
                 </div>
                 <div>
                     <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">IFSC Code</label>
-                    <input type="text" id="bankIfsc" placeholder="e.g. SBIN0001234" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm uppercase focus:outline-none focus:border-[#1F2937]">
+                    <input type="text" id="bankIfsc" placeholder="e.g. SBIN0001234" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm uppercase focus:outline-none focus:border-[#087E8B]">
                 </div>
             </div>
 
             <div class="mb-6">
                 <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Withdrawal Amount (Min ₹50)</label>
-                <input type="number" id="withdrawAmount" placeholder="Enter amount (e.g. 50)" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#1F2937]">
+                <input type="number" id="withdrawAmount" placeholder="Enter amount (e.g. 50)" class="w-full border border-gray-300 rounded-xl px-3 py-3 text-sm focus:outline-none focus:border-[#087E8B]">
             </div>
 
-            <button onclick="requestWithdrawal()" class="w-full bg-[#1F2937] hover:bg-[#066570] text-white font-bold py-3.5 rounded-xl shadow-md transition">
+            <button onclick="requestWithdrawal()" class="w-full bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3.5 rounded-xl shadow-md transition">
                 Withdraw Money
             </button>
         </div>
@@ -392,16 +392,16 @@
         <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl font-bold">&times;</button>
         
         <div class="text-4xl font-bold mb-2 flex items-center justify-center gap-2">
-            <img src="logo.png" class="h-12 w-12 rounded-full object-cover border-2 border-[#1F2937] bg-white" alt="Earnova Logo">
+            <img src="logo.png" class="h-12 w-12 rounded-full object-cover border-2 border-[#087E8B] bg-white" alt="Earnova Logo">
             Earnova
         </div>
         
         <p class="text-sm text-gray-500 text-center mb-6">Login to your Earnova account</p>
         
-        <input type="email" id="login-email" placeholder="Email Address" class="w-full mb-4 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#1F2937]">
-        <input type="password" id="login-pass" placeholder="Password" class="w-full mb-6 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#1F2937]">
+        <input type="email" id="login-email" placeholder="Email Address" class="w-full mb-4 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#087E8B]">
+        <input type="password" id="login-pass" placeholder="Password" class="w-full mb-6 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#087E8B]">
         
-        <button onclick="simulateLogin()" class="w-full bg-[#1F2937] hover:bg-[#066570] text-white font-bold py-3 rounded-lg mb-4 shadow-md">Login</button>
+        <button onclick="simulateLogin()" class="w-full bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3 rounded-lg mb-4 shadow-md">Login</button>
         
         <div class="flex items-center justify-center gap-2 mb-4">
             <hr class="w-full border-gray-200">
@@ -425,7 +425,7 @@
         </div>
         <div class="flex justify-between items-center gap-3">
             <button onclick="closePopup()" class="w-1/3 py-2.5 rounded-xl border border-gray-300 text-sm font-bold text-gray-600 hover:bg-gray-50 transition">Cancel</button>
-            <button id="popupStartBtn" class="w-2/3 py-2.5 rounded-xl bg-[#1F2937] hover:bg-[#066570] text-white text-sm font-bold shadow-md transition flex justify-center items-center gap-1">
+            <button id="popupStartBtn" class="w-2/3 py-2.5 rounded-xl bg-[#087E8B] hover:bg-[#066570] text-white text-sm font-bold shadow-md transition flex justify-center items-center gap-1">
                 Start Task <span class="bg-white/20 px-1.5 py-0.5 rounded text-xs">₹<span id="popupAmount"></span></span>
             </button>
         </div>
@@ -452,7 +452,6 @@
     const provider = new GoogleAuthProvider();
     const db = getFirestore(app);
 
-    // Global Functions assignment for HTML onclick access
     window.auth = auth;
     window.db = db;
 
@@ -461,7 +460,6 @@
             await signInWithPopup(auth, provider);
             closeLoginModal();
         } catch (error) {
-            // Fallback for popup block or domain mismatch so user never gets stuck
             localStorage.setItem("earnova_user_name", "Rajnesh Chauhan");
             localStorage.setItem("earnova_logged_in", "true");
             closeLoginModal();
@@ -489,19 +487,15 @@
         document.getElementById('profile-popup').classList.toggle('hidden');
     };
     
-    // Bahar (empty space) click karne par popup band karne ka smart code
-document.addEventListener('click', function(event) {
-    let popup = document.getElementById('profile-popup');
-    let profilePic = document.getElementById('nav-profile-pic');
-    
-    // Check karein ki popup khula hai ya nahi
-    if (popup && !popup.classList.contains('hidden')) {
-        // Agar click profile photo par nahi hai, aur popup dabbe ke andar bhi nahi hai, toh band kar do
-        if (event.target !== profilePic && !popup.contains(event.target)) {
-            popup.classList.add('hidden');
+    document.addEventListener('click', function(event) {
+        let popup = document.getElementById('profile-popup');
+        let profilePic = document.getElementById('nav-profile-pic');
+        if (popup && !popup.classList.contains('hidden')) {
+            if (event.target !== profilePic && !popup.contains(event.target)) {
+                popup.classList.add('hidden');
+            }
         }
-    }
-});
+    });
 
     window.copyReferralLink = function() {
         const linkInput = document.getElementById('referral-link');
@@ -517,146 +511,43 @@ document.addEventListener('click', function(event) {
         }
     };
 
-    // Spin Wheel Logic
-    let isSpinning = false;
-    let currentRotation = 0;
-    window.spinWheel = async function() {
-        if (isSpinning) return;
-        
-        let lastSpinDate = localStorage.getItem('earnova_last_spin');
-        let today = new Date().toDateString();
-        if (lastSpinDate === today) {
-            alert("Aaj ka free spin khatam ho gaya! Kal wapas aayen.");
-            return;
-        }
-
-        isSpinning = true;
-        let wheel = document.getElementById("wheel");
-        let resultText = document.getElementById("spinResult");
-        let btn = document.getElementById("spinBtn");
-
-        resultText.innerText = "Charkhi ghum rahi hai... 🎡";
-        btn.classList.add("opacity-50", "cursor-not-allowed");
-
-        let spinDegree = Math.floor(Math.random() * 360) + 2160;
-        currentRotation += spinDegree;
-        wheel.style.transform = `rotate(${currentRotation}deg)`;
-
-        setTimeout(async () => {
-            let pointerAngle = (360 - (currentRotation % 360)) % 360;
-            let winningIndex = Math.floor(pointerAngle / 60);
-            let prizes = ["₹0.10", "Try Again", "₹0.50", "₹0.20", "₹0.30", "₹0.25"];
-            let wonPrize = prizes[winningIndex];
-
-            if (wonPrize === "Try Again") {
-                resultText.innerText = "Oops! Try Again Tomorrow.";
-            } else {
-                resultText.innerText = "🎉 Badhai ho! Aap jeete: " + wonPrize;
-                let prizeAmount = parseFloat(wonPrize.replace("₹", ""));
-                
-                if (auth.currentUser) {
-                    const userRef = doc(db, "users", auth.currentUser.uid);
-                    const snap = await getDoc(userRef);
-                    if (snap.exists()) {
-                        let newBal = (snap.data().walletBalance || 0) + prizeAmount;
-                        await updateDoc(userRef, { walletBalance: newBal });
-                    }
-                } else {
-                    let walletDisplay = document.getElementById('wallet-display');
-                    let currentBal = parseFloat(walletDisplay.innerText) || 0;
-                    walletDisplay.innerText = (currentBal + prizeAmount).toFixed(2);
-                }
-                alert("Success! " + wonPrize + " aapke wallet mein add ho gaye hain.");
-            }
-
-            localStorage.setItem('earnova_last_spin', today);
-            isSpinning = false;
-            btn.classList.remove("opacity-50", "cursor-not-allowed");
-        }, 4000);
-    };
-
-    // Daily Check-in Logic
-    window.earnovaCheckin = async function() {
+    let startedTasks = [];
+    window.startAppTask = async function(rewardAmount, taskUrl) {
         if (!auth.currentUser) {
-            alert("Daily Check-in ke liye pehle login karein!");
+            alert("Task start karne ke liye pehle login karein!");
             openLoginModal();
             return;
         }
 
-        const today = new Date().toDateString();
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        const result = document.getElementById("checkinResult");
-        const btn = document.getElementById("daily-checkin-btn");
+        if (startedTasks.includes(taskUrl)) {
+            alert("Aapne yeh task pehle hi shuru kar diya hai! Kripya link se app install karke registration poora karein.");
+            window.open(taskUrl, '_blank');
+            return;
+        }
+
+        startedTasks.push(taskUrl);
+        if (taskUrl) window.open(taskUrl, '_blank');
+
+        setTimeout(() => {
+            alert("Task Shuru! Aapko link se app download karke process poora karna hoga. Verification ke baad ₹" + rewardAmount + " aapke main wallet mein add ho jayenge.");
+        }, 1000);
 
         try {
+            const userRef = doc(db, "users", auth.currentUser.uid);
             const snap = await getDoc(userRef);
-            if (!snap.exists()) return;
-            const data = snap.data();
-
-            if (data.lastCheckInDate === today) {
-                result.textContent = "Aaj ka Check-in pehle hi ho chuka hai.";
-                return;
+            if (snap.exists()) {
+                let currentPending = Number(snap.data().pendingWithdrawals || 0);
+                let newPending = currentPending + rewardAmount;
+                await updateDoc(userRef, {
+                    pendingWithdrawals: newPending
+                });
             }
-
-            const reward = 0.20;
-            await updateDoc(userRef, {
-                walletBalance: Number(data.walletBalance || 0) + reward,
-                lastCheckInDate: today
-            });
-
-            result.textContent = "🎉 ₹0.20 wallet mein add ho gaye!";
-            btn.disabled = true;
-            btn.innerText = "Claimed Today ✓";
-            btn.className = "bg-gray-400 text-white font-bold py-3 px-8 rounded-xl shadow cursor-not-allowed";
-
-            alert("Daily Check-in successful! ₹0.20 wallet mein add ho gaye.");
         } catch (error) {
-            console.error(error);
-            alert("Reward add nahi hua. Kripya dobara koshish karein.");
+            console.error("Firebase update error:", error);
+            alert("Database update karne mein error aayi.");
         }
     };
 
-   // Task Start Logic (Permanent Save ke sath)
-    let startedTasks = [];
-   window.startAppTask = async function(rewardAmount, taskUrl) {
-    if (!auth.currentUser) {
-        alert("Task start karne ke liye pehle login karein!");
-        openLoginModal();
-        return;
-    }
-
-    if (startedTasks.includes(taskUrl)) {
-        alert("Aapne yeh task pehle hi shuru kar diya hai! Kripya link se app install karke registration poora karein.");
-        window.open(taskUrl, '_blank');
-        return;
-    }
-
-    startedTasks.push(taskUrl);
-    if (taskUrl) window.open(taskUrl, '_blank');
-
-    setTimeout(() => {
-        alert("Task Shuru! Aapko link se app download karke process poora karna hoga. Verification ke baad ₹" + rewardAmount + " aapke main wallet mein add ho jayenge.");
-    }, 1000);
-
-    // Seedha Firebase Firestore Database mein pendingWithdrawals update karna
-    try {
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        const snap = await getDoc(userRef);
-        if (snap.exists()) {
-            let currentPending = Number(snap.data().pendingWithdrawals || 0);
-            let newPending = currentPending + rewardAmount;
-            
-            // Firebase database mein save hoga taaki aapko console me dikhe
-            await updateDoc(userRef, {
-                pendingWithdrawals: newPending
-            });
-        }
-    } catch (error) {
-        console.error("Firebase update error:", error);
-        alert("Database update karne mein error aayi.");
-    }
-};
-    // Withdrawal Logic
     window.requestWithdrawal = async function() {
         if (!auth.currentUser) {
             alert("Pehle login karein!");
@@ -685,7 +576,6 @@ document.addEventListener('click', function(event) {
         }
     };
 
-    // Auth State Listener & Sync
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             document.getElementById('nav-login-btn').classList.add('hidden');
@@ -697,7 +587,7 @@ document.addEventListener('click', function(event) {
 
             const myReferralCode = user.uid.substring(0, 8).toUpperCase();
             const refLinkInput = document.getElementById('referral-link');
-          if (refLinkInput) refLinkInput.value = `https://rajneshc510-cloud.github.io/?ref=${myReferralCode}`;
+            if (refLinkInput) refLinkInput.value = `https://rajneshc510-cloud.github.io/?ref=${myReferralCode}`;
 
             const userRef = doc(db, "users", user.uid);
             const userSnap = await getDoc(userRef);
@@ -711,14 +601,10 @@ document.addEventListener('click', function(event) {
                     const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
                     updateEl('wallet-display', (data.walletBalance || 0).toFixed(2));
                     updateEl('dashboard-balance', (data.walletBalance || 0).toFixed(2));
-                    let savedPending = localStorage.getItem('earnova_saved_pending');
-if (savedPending && document.getElementById('pending-display')) {
-    document.getElementById('pending-display').innerText = savedPending;
-}
+                    updateEl('pending-display', (data.pendingWithdrawals || 0).toFixed(2));
                 }
             });
         } else {
-            // Fallback for LocalStorage simulation login if offline/guest
             if (localStorage.getItem("earnova_logged_in") === "true") {
                 document.getElementById('nav-login-btn').classList.add('hidden');
                 document.getElementById('user-profile-info').classList.remove('hidden');
@@ -735,33 +621,26 @@ if (savedPending && document.getElementById('pending-display')) {
     });
 </script>
 
-<!-- UI NAVIGATION SCRIPT -->
-    
 <script>
-    
- function showTab(tabId) {
-        // 1. Sabhi pages (tabs) ko chupao aur classes reset karo
+    function showTab(tabId) {
         let tabs = document.querySelectorAll('.tab-content');
         tabs.forEach(tab => {
             tab.classList.remove('active');
             tab.classList.add('hidden');
         });
 
-        // 2. Sirf click kiye hue page ko dikhao
         let activeTab = document.getElementById(tabId);
         if (activeTab) {
             activeTab.classList.remove('hidden');
             activeTab.classList.add('active');
         }
 
-        // 3. Sabhi buttons se border aur background hatao
         let btns = document.querySelectorAll('.nav-btn');
         btns.forEach(btn => {
             btn.classList.remove('border-white', 'bg-white/20', 'shadow-sm');
             btn.classList.add('border-transparent');
         });
 
-        // 4. Jis button par click kiya hai, uspe border lagao
         let activeBtn = document.getElementById('btn-' + tabId);
         if (activeBtn) {
             activeBtn.classList.remove('border-transparent');
@@ -769,7 +648,6 @@ if (savedPending && document.getElementById('pending-display')) {
         }
     }
 
-    // Jaise hi website khulegi, 'Home' page aur uska border automatically set ho jayega
     document.addEventListener("DOMContentLoaded", function() {
         showTab('dashboard'); 
     });
@@ -810,339 +688,5 @@ if (savedPending && document.getElementById('pending-display')) {
     }
 </script>
 
-<!-- SCRATCH CARD LOGIC -->
-<script>
-    function initScratchCard() {
-        const canvas = document.getElementById('scratch-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const container = document.getElementById('scratch-container');
-        const rewardText = document.getElementById('scratch-reward-text');
-        const message = document.getElementById('scratch-message');
-        
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
-
-        let lastScratchDate = localStorage.getItem('earnova_last_scratch');
-        let today = new Date().toDateString();
-        
-        // Agar aaj pehle hi scratch kar liya hai
-        if (lastScratchDate === today) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.style.display = 'none';
-            rewardText.innerText = localStorage.getItem('earnova_last_scratch_amt') || '₹0.00';
-            rewardText.classList.remove('opacity-0');
-            message.innerText = "Aaj ka card aapne scratch kar liya hai!";
-            message.classList.replace('text-green-600', 'text-red-500');
-            return;
-        }
-
-        // Upar ki silver patti (layer)
-        ctx.fillStyle = '#cbd5e1'; 
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        // Silver layer ke upar text
-        ctx.font = "bold 18px Arial";
-        ctx.fillStyle = "#334155"; 
-        ctx.textAlign = "center";
-        ctx.fillText("SCRATCH ME", canvas.width / 2, canvas.height / 2 + 6);
-
-        let isDrawing = false;
-        let isRevealed = false;
-
-        // Random prize 1 Rupaye se kam (paise mein)
-        const rewards = [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90];
-        const prizeAmt = rewards[Math.floor(Math.random() * rewards.length)];
-        rewardText.innerText = "₹" + prizeAmt.toFixed(2);
-        rewardText.classList.remove('opacity-0'); 
-
-        function getMousePos(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return { x: clientX - rect.left, y: clientY - rect.top };
-        }
-
-        function scratch(e) {
-            if (!isDrawing || isRevealed) return;
-            if(e.cancelable) e.preventDefault();
-            const pos = getMousePos(e);
-            
-            ctx.globalCompositeOperation = 'destination-out';
-            ctx.beginPath();
-            ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2); // Scratch brush size
-            ctx.fill();
-            checkReveal();
-        }
-
-        function checkReveal() {
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const pixels = imageData.data;
-            let clearPixels = 0;
-            for (let i = 3; i < pixels.length; i += 4) {
-                if (pixels[i] === 0) clearPixels++;
-            }
-            const clearPercentage = (clearPixels / (pixels.length / 4)) * 100;
-            
-            // Agar 40% se zyada scratch kar diya toh poora dikha do
-            if (clearPercentage > 40 && !isRevealed) {
-                isRevealed = true;
-                canvas.style.transition = "opacity 0.5s";
-                canvas.style.opacity = "0";
-                setTimeout(() => {
-                    canvas.style.display = "none";
-                    awardPrize(prizeAmt);
-                }, 500);
-            }
-        }
-
-        canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(e); });
-        canvas.addEventListener('mousemove', scratch);
-        canvas.addEventListener('mouseup', () => { isDrawing = false; });
-        canvas.addEventListener('mouseleave', () => { isDrawing = false; });
-        
-        canvas.addEventListener('touchstart', (e) => { isDrawing = true; scratch(e); }, {passive: false});
-        canvas.addEventListener('touchmove', scratch, {passive: false});
-        canvas.addEventListener('touchend', () => { isDrawing = false; });
-    }
-
-    function awardPrize(amount) {
-        let today = new Date().toDateString();
-        localStorage.setItem('earnova_last_scratch', today);
-        localStorage.setItem('earnova_last_scratch_amt', "₹" + amount.toFixed(2));
-        
-        document.getElementById('scratch-message').innerText = `🎉 Badhai ho! Aap jeete ₹${amount.toFixed(2)}!`;
-
-        // Turant dashboard aur wallet me paise add kar do
-        let walletDisplay = document.getElementById('wallet-display');
-        if (walletDisplay) walletDisplay.innerText = (parseFloat(walletDisplay.innerText) + amount).toFixed(2);
-        
-        let dashBal = document.getElementById('dashboard-balance');
-        if (dashBal) {
-            let currentDash = parseFloat(dashBal.innerText.replace('₹', '')) || 0;
-            dashBal.innerText = (currentDash + amount).toFixed(2);
-        }
-    }
-    
-    // Page load hote hi card taiyar ho jayega
-    document.addEventListener("DOMContentLoaded", initScratchCard);
-</script>
-
- <script>
-const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
-
-function earnovaSpin() {
-  const today = new Date().toDateString();
-  const result = document.getElementById('spinResult');
-  const btn = document.getElementById('spinBtn');
-  const wheel = document.getElementById('spin-wheel');
-
-  if (localStorage.getItem('earnova_spin_date') === today) {
-    result.textContent = 'Aaj ka Spin pehle hi use ho chuka hai.';
-    return;
-  }
-
-  const rewards = [
-    { amount: 0.01, chance: 30 },
-    { amount: 0.02, chance: 25 },
-    { amount: 0.05, chance: 20 },
-    { amount: 0.10, chance: 15 },
-    { amount: 0.25, chance: 8 },
-    { amount: 0.50, chance: 2 }
-  ];
-
-  let random = Math.random() * 100;
-  let selected = rewards[0].amount;
-
-  for (const reward of rewards) {
-    random -= reward.chance;
-    if (random < 0) {
-      selected = reward.amount;
-      break;
-    }
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'Spinning...';
-  btn.classList.add('opacity-50', 'cursor-not-allowed');
-  result.textContent = 'Charkhi ghum rahi hai... 🎡';
-
-  if (wheel) {
-      let spinDegree = Math.floor(Math.random() * 360) + 1440;
-      wheel.style.transition = 'transform 3s ease-out';
-      wheel.style.transform = `rotate(${spinDegree}deg)`;
-  }
-
-  setTimeout(() => {
-      localStorage.setItem('earnova_spin_date', today);
-      localStorage.setItem('earnova_spin_reward', selected.toFixed(2));
-      
-      result.textContent = '🎉 Badhai ho! Aap jeete ₹' + selected.toFixed(2);
-      btn.textContent = 'Come Back Tomorrow';
-
-      let dashBalance = document.getElementById('dashboard-balance');
-      let walletDisplay = document.getElementById('wallet-display');
-      
-      if (dashBalance) {
-          let currentBalance = parseFloat(dashBalance.innerText) || 0;
-          let newBalance = currentBalance + selected;
-          
-          dashBalance.innerText = newBalance.toFixed(2);
-          if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
-          
-          localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
-      }
-  }, 3000);
-}
-
-function earnovaCheckin() {
-  const today = new Date().toDateString();
-  const lastDate = localStorage.getItem('earnova_checkin_date');
-  const result = document.getElementById('checkinResult');
-  const btn = document.getElementById('checkinBtn');
-  let streak = Number(localStorage.getItem('earnova_checkin_streak') || 0);
-
-  if (lastDate === today) {
-    result.textContent = 'Aaj ka Daily Check-in pehle hi ho chuka hai.';
-    return;
-  }
-
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-
-  if (lastDate !== yesterday.toDateString()) {
-    streak = 0; 
-  }
-
-  streak = (streak % 7) + 1;
-  const reward = earnovaDailyRewards[streak - 1];
-
-  localStorage.setItem('earnova_checkin_date', today);
-  localStorage.setItem('earnova_checkin_streak', streak);
-
-  let streakDisplay = document.getElementById('checkin-streak');
-  if(streakDisplay) {
-      streakDisplay.textContent = 'Day ' + streak + ' of 7';
-  }
-
-  result.textContent = '🎉 Badhai ho! Daily reward ₹' + reward.toFixed(2) + ' wallet mein add ho gaye!';
-  btn.disabled = true;
-  btn.textContent = 'Claimed Today ✓';
-  btn.classList.replace('bg-blue-600', 'bg-gray-400');
-  btn.classList.add('cursor-not-allowed');
-
-  let dashBalance = document.getElementById('dashboard-balance');
-  let walletDisplay = document.getElementById('wallet-display');
-  
-  if (dashBalance) {
-      let currentBalance = parseFloat(dashBalance.innerText) || 0;
-      let newBalance = currentBalance + reward;
-      
-      dashBalance.innerText = newBalance.toFixed(2);
-      if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
-      
-      localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
-  }
-}
-</script>   
-
-<!-- NAYA FIREBASE-SYNCED TASK SCRIPT -->
-<script>
-// 1. Page load hote hi Firebase se user ka data laana
-document.addEventListener("DOMContentLoaded", function() {
-    let savedBalance = localStorage.getItem('earnova_saved_balance');
-    let dashBalance = document.getElementById('dashboard-balance');
-    let walletDisplay = document.getElementById('wallet-display');
-    
-    if (savedBalance) {
-        if (dashBalance) dashBalance.innerText = savedBalance;
-        if (walletDisplay) walletDisplay.innerText = savedBalance;
-    }
-
-    let today = new Date().toDateString();
-    let lastScratch = localStorage.getItem('earnova_scratch_date');
-    if (lastScratch === today) {
-        let overlay = document.getElementById('scratch-overlay');
-        let msg = document.getElementById('scratch-msg');
-        if (overlay) overlay.style.display = 'none';
-        if (msg) {
-            msg.style.opacity = '1';
-            msg.innerText = "Aaj ka claim ho chuka hai!";
-        }
-    }
-});
-
-// 2. Task Start Function - Seedha Firebase Database mein save karega
-let startedTasks = [];
-window.startAppTask = async function(rewardAmount, taskUrl) {
-    if (!auth.currentUser) {
-        alert("Task start karne ke liye pehle login karein!");
-        openLoginModal();
-        return;
-    }
-
-    if (startedTasks.includes(taskUrl)) {
-        alert("Aapne yeh task pehle hi shuru kar diya hai! Kripya link se app install karke registration poora karein.");
-        window.open(taskUrl, '_blank');
-        return;
-    }
-
-    startedTasks.push(taskUrl);
-    if (taskUrl) window.open(taskUrl, '_blank');
-
-    setTimeout(() => {
-        alert("Task Shuru! Aapko link se app download karke process poora karna hoga. Verification ke baad ₹" + rewardAmount + " aapke main wallet mein add ho jayenge.");
-    }, 1000);
-
-    // Firebase Database mein pendingWithdrawals update karna
-    try {
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        const snap = await getDoc(userRef);
-        if (snap.exists()) {
-            let currentPending = Number(snap.data().pendingWithdrawals || 0);
-            let newPending = currentPending + rewardAmount;
-            
-            // Firebase Firestore mein update hoga jo aapko Firebase console me dikhega
-            await updateDoc(userRef, {
-                pendingWithdrawals: newPending
-            });
-            console.log("Pending approval updated in Firebase:", newPending);
-        }
-    } catch (error) {
-        console.error("Firebase update error:", error);
-        alert("Database update karne mein error aayi.");
-    }
-};
-
-// 3. Scratch Card reveal function
-function revealScratchCard() {
-    let today = new Date().toDateString();
-    let overlay = document.getElementById('scratch-overlay');
-    let msg = document.getElementById('scratch-msg');
-    let dashBalance = document.getElementById('dashboard-balance'); 
-
-    if (localStorage.getItem('earnova_scratch_date') === today) {
-        return;
-    }
-
-    if (overlay && overlay.style.pointerEvents !== 'none') {
-        overlay.style.opacity = '0';
-        overlay.style.transform = 'scale(1.1) translateY(-20px)';
-        overlay.style.pointerEvents = 'none'; 
-        
-        if (msg) msg.style.opacity = '1';
-
-        localStorage.setItem('earnova_scratch_date', today);
-
-        if (dashBalance) {
-            let currentBalance = parseFloat(dashBalance.innerText) || 0;
-            let newBalance = currentBalance + 0.40;
-            dashBalance.innerText = newBalance.toFixed(2);
-            localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
-        }
-    }
-}
-</script>
-    
 </body>
 </html>
