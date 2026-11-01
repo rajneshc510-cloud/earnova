@@ -118,33 +118,33 @@
 <!-- DASHBOARD TAB -->
     <section id="dashboard" class="tab-content active space-y-4 md:space-y-8">
         
-        <!-- COMPACT HERO BANNER (Super Mobile Friendly) -->
-        <div class="relative bg-slate-900 text-white rounded-2xl md:rounded-3xl overflow-hidden p-5 md:p-10 shadow-lg">
+        <!-- PREMIUM TEAL HERO BANNER (Phone & Laptop Friendly) -->
+        <div class="relative bg-gradient-to-br from-[#087E8B] to-[#066570] text-white rounded-2xl md:rounded-3xl overflow-hidden p-6 md:p-10 shadow-xl">
             <div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80');"></div>
             
-            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="space-y-2 text-center md:text-left">
-                    <div class="inline-block bg-[#087E8B]/30 text-cyan-300 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="space-y-3">
+                    <div class="inline-block bg-white/20 text-white text-[11px] md:text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
                         Welcome, <span id="user-name-display">Guest</span>! 👋
                     </div>
-                    <h2 class="text-xl sm:text-2xl md:text-4xl font-black leading-snug">
-                        Your <span class="text-amber-400">Financial Future</span> Starts Here
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
+                        Your <span class="text-amber-300">Financial Future</span> Starts Here
                     </h2>
-                    <p class="text-gray-300 text-xs md:text-sm max-w-md">
-                        Complete simple tasks, play lucky spin & earn daily instant UPI payouts from home.
+                    <p class="text-cyan-100 text-xs md:text-sm max-w-md">
+                        Complete simple tasks, play lucky spin & earn daily instant UPI payouts from home without investment.
                     </p>
-                    <div class="flex justify-center md:justify-start gap-2 pt-2">
-                        <button onclick="showTab('tasks')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-5 py-2.5 rounded-full shadow-md transition text-xs md:text-sm">
+                    <div class="flex justify-center md:justify-start gap-3 pt-2">
+                        <button onclick="showTab('tasks')" class="bg-white text-[#087E8B] hover:bg-gray-100 font-extrabold px-6 py-3 rounded-full shadow-lg transition text-xs md:text-sm">
                             Start Earning Now ➔
                         </button>
                     </div>
                 </div>
 
-                <!-- Small Badge Graphic for Mobile -->
-                <div class="hidden sm:flex w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-tr from-[#087E8B] to-amber-400 p-0.5 shrink-0 items-center justify-center">
-                    <div class="w-full h-full bg-slate-900 rounded-full flex flex-col items-center justify-center text-center p-2">
-                        <span class="text-xl md:text-2xl">🚀</span>
-                        <span class="font-bold text-[10px] md:text-xs text-white mt-1">Instant Payouts</span>
+                <!-- Graphic Badge -->
+                <div class="w-32 h-32 md:w-36 md:h-36 rounded-full bg-white/10 border-2 border-white/20 p-1 shrink-0 flex items-center justify-center backdrop-blur-sm">
+                    <div class="w-full h-full bg-[#087E8B] rounded-full flex flex-col items-center justify-center text-center p-2 shadow-inner">
+                        <span class="text-2xl md:text-3xl">🚀</span>
+                        <span class="font-extrabold text-[11px] text-white mt-1">Instant Payouts</span>
                     </div>
                 </div>
             </div>
@@ -199,8 +199,6 @@
             </div>
         </div>
 
-    </section>
-    
     </section>
     
     <!-- SPIN PAGE START -->
