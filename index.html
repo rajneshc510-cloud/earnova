@@ -118,73 +118,74 @@
         <div class="w-full bg-gray-200 border border-gray-300 text-center py-3 mb-4 mt-2 rounded-lg shadow-inner">
             <p class="text-gray-500 text-[10px] font-bold tracking-widest uppercase">Advertisement Space</p>
         </div>  
+
         <button onclick="showTab('tasks')" class="bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3 px-6 rounded-lg shadow-md transition w-full md:w-auto">Start Earning Now ➔</button>
+    </section> 
     
-   <!-- SPIN PAGE START -->
-<section id="spin" class="tab-content hidden">
-  <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-[#087E8B] mb-2">🎡 Lucky Spin</h2>
-    <p class="text-gray-600 mb-5">Spin karo aur reward jeeto!</p>
+    <!-- SPIN PAGE START -->
+    <section id="spin" class="tab-content hidden">
+      <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-[#087E8B] mb-2">🎡 Lucky Spin</h2>
+        <p class="text-gray-600 mb-5">Spin karo aur reward jeeto!</p>
 
-    <div id="spin-wheel"
-      class="w-56 h-56 rounded-full mx-auto flex items-center justify-center border-8 border-yellow-400 shadow-lg"
-      style="background: conic-gradient(#087E8B 0deg 60deg,#e0f2fe 60deg 120deg,#0e7490 120deg 180deg,#bae6fd 180deg 240deg,#087E8B 240deg 300deg,#e0f2fe 300deg 360deg);">
-      <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-[#087E8B]">
-        SPIN
+        <div id="spin-wheel"
+          class="w-56 h-56 rounded-full mx-auto flex items-center justify-center border-8 border-yellow-400 shadow-lg"
+          style="background: conic-gradient(#087E8B 0deg 60deg,#e0f2fe 60deg 120deg,#0e7490 120deg 180deg,#bae6fd 180deg 240deg,#087E8B 240deg 300deg,#e0f2fe 300deg 360deg);">
+          <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-[#087E8B]">
+            SPIN
+          </div>
+        </div>
+
+        <button id="spinBtn" onclick="earnovaSpin()"
+          class="mt-5 bg-[#087E8B] text-white font-bold py-3 px-10 rounded-xl shadow hover:opacity-90">
+          SPIN NOW
+        </button>
+        <p id="spinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
+
+        <hr class="my-7">
+
+        <h2 class="text-2xl font-bold text-[#087E8B] mb-2">📅 Daily Check-in</h2>
+        <p class="text-gray-600 mb-4">Roz check-in karo aur rewards pao!</p>
+        <div id="checkin-streak" class="text-sm text-gray-500 mb-3">Day 1 of 7</div>
+
+        <button id="checkinBtn" onclick="earnovaCheckin()"
+          class="bg-[#087E8B] text-white font-bold py-3 px-8 rounded-xl shadow hover:opacity-90">
+          Claim Daily Reward
+        </button>
+        <p id="checkinResult" class="mt-3 font-semibold text-[#087E8B] mb-7"></p>
+
+        <hr class="my-7">
+
+        <!-- PREMIUM SCRATCH CARD (Moved here from Home) -->
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 max-w-sm mx-auto w-full">
+            <div class="text-center mb-5">
+                <div class="inline-flex items-center justify-center gap-2 bg-yellow-50 px-4 py-1.5 rounded-full mb-3 border border-yellow-100">
+                    <span class="text-xl">🎁</span>
+                    <h3 class="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">Premium Scratch Card</h3>
+                </div>
+                <p class="text-gray-500 text-sm font-medium">Scratch karo aur instant paise jeeto!</p>
+            </div>
+
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group shadow-inner border-2 border-dashed border-orange-300 bg-gray-50 flex items-center justify-center" onclick="revealScratchCard()">
+                <div id="scratch-overlay" class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 flex flex-col items-center justify-center z-10 transition-all duration-700 ease-out group-hover:scale-105">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
+                        <span class="text-2xl text-white">🪙</span>
+                    </div>
+                    <span class="text-white font-black text-xl md:text-2xl tracking-widest drop-shadow-lg">SCRATCH ME</span>
+                    <span class="text-white/80 text-[10px] uppercase tracking-widest mt-2 bg-black/10 px-3 py-1 rounded-full">Tap to reveal</span>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center z-0 bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div class="text-center">
+                        <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 drop-shadow-sm">₹0.40</span>
+                        <p id="scratch-msg" class="text-sm font-bold text-green-600 mt-2 opacity-0 transition-opacity duration-1000 delay-300">🎉 You Won!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-    </div>
-
-    <button id="spinBtn" onclick="earnovaSpin()"
-      class="mt-5 bg-[#087E8B] text-white font-bold py-3 px-10 rounded-xl shadow hover:opacity-90">
-      SPIN NOW
-    </button>
-    <p id="spinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
-
-    <hr class="my-7">
-
-    <h2 class="text-2xl font-bold text-[#087E8B] mb-2">📅 Daily Check-in</h2>
-    <p class="text-gray-600 mb-4">Roz check-in karo aur rewards pao!</p>
-    <div id="checkin-streak" class="text-sm text-gray-500 mb-3">Day 1 of 7</div>
-
-    <button id="checkinBtn" onclick="earnovaCheckin()"
-      class="bg-[#087E8B] text-white font-bold py-3 px-8 rounded-xl shadow hover:opacity-90">
-      Claim Daily Reward
-    </button>
-    <p id="checkinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
-
-    <hr class="my-7">
-
-    <!-- Premium Scratch Card -->
-    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 max-w-sm mx-auto w-full">
-        <div class="text-center mb-5">
-            <div class="inline-flex items-center justify-center gap-2 bg-yellow-50 px-4 py-1.5 rounded-full mb-3 border border-yellow-100">
-                <span class="text-xl">🎁</span>
-                <h3 class="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">Premium Scratch Card</h3>
-            </div>
-            <p class="text-gray-500 text-sm font-medium">Scratch karo aur instant paise jeeto!</p>
-        </div>
-
-        <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group shadow-inner border-2 border-dashed border-orange-300 bg-gray-50 flex items-center justify-center" onclick="revealScratchCard()">
-            <div id="scratch-overlay" class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 flex flex-col items-center justify-center z-10 transition-all duration-700 ease-out group-hover:scale-105">
-                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
-                    <span class="text-2xl text-white">🪙</span>
-                </div>
-                <span class="text-white font-black text-xl md:text-2xl tracking-widest drop-shadow-lg">SCRATCH ME</span>
-                <span class="text-white/80 text-[10px] uppercase tracking-widest mt-2 bg-black/10 px-3 py-1 rounded-full">Tap to reveal</span>
-            </div>
-
-            <div class="absolute inset-0 flex items-center justify-center z-0 bg-gradient-to-br from-green-50 to-emerald-50">
-                <div class="text-center">
-                    <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 drop-shadow-sm">₹0.40</span>
-                    <p id="scratch-msg" class="text-sm font-bold text-green-600 mt-2 opacity-0 transition-opacity duration-1000 delay-300">🎉 You Won!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<!-- SPIN PAGE END -->
+    </section>
+    <!-- SPIN PAGE END -->
     
     <!-- TASKS TAB -->
     <section id="tasks" class="tab-content">
@@ -276,7 +277,7 @@
             </div>
         </div>
         
-<!-- TASK 5: Upstox -->
+        <!-- TASK 5: Upstox -->
         <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between mb-3 hover:border-blue-200 transition">
             <div class="flex items-center gap-3">
                 <img src="https://www.google.com/s2/favicons?domain=upstox.com&sz=128" alt="Upstox" class="h-11 w-11 rounded-xl shadow-sm border border-gray-100 bg-white p-0.5 object-cover">
@@ -296,7 +297,6 @@
                 <button onclick="openPopup('Upstox App', 180, 'https://upstox.onelink.me/0H1s/8HB3UH', 'terms-upstox')" class="bg-[#087E8B] text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow hover:bg-[#066570] transition">Start</button>
             </div>
         </div>
-    
     </section>
 
     <!-- REFER TAB -->
@@ -319,11 +319,11 @@
         </div>
     </section>
 
-   <!-- WALLET TAB -->
+    <!-- WALLET TAB -->
     <section id="wallet" class="tab-content hidden p-4 max-w-md mx-auto w-full">
         <h2 class="text-xl font-bold text-[#087E8B] mb-4">Wallet & Withdrawals</h2>
         
-        <!-- Teeno boxes ab Wallet mein aa gaye hain -->
+        <!-- Wallet ke andar 3 boxes ka layout -->
         <div class="grid grid-cols-3 gap-2 mb-4">
             <div class="bg-white p-3 rounded-xl shadow-sm border-t-4 border-cyan text-center">
                 <h3 class="text-gray-500 text-[10px] font-semibold truncate">💳 Cash</h3>
@@ -603,13 +603,12 @@
                 let savedName = localStorage.getItem("earnova_user_name") || "Rajnesh Chauhan";
                 document.getElementById('popup-user-name').innerText = savedName;
                 document.getElementById('user-name-display').innerText = savedName;
-          } else {
+            } else {
                 document.getElementById('nav-login-btn').classList.remove('hidden');
                 document.getElementById('user-profile-info').classList.add('hidden');
                 document.getElementById('user-name-display').innerText = 'Guest';
-              // Bina login ke user ko rokne ke liye popup khol do
-              openLoginModal();
-           }
+                openLoginModal();
+            }
         }
     });
 </script>
@@ -679,6 +678,170 @@
         document.getElementById('taskPopup').classList.add('hidden');
         document.getElementById('taskPopup').classList.remove('flex');
     }
+</script>
+
+<!-- SCRATCH CARD LOGIC -->
+<script>
+    function initScratchCard() {
+        let lastScratchDate = localStorage.getItem('earnova_last_scratch');
+        let today = new Date().toDateString();
+        let overlay = document.getElementById('scratch-overlay');
+        let msg = document.getElementById('scratch-msg');
+        
+        if (lastScratchDate === today) {
+            if (overlay) overlay.style.display = 'none';
+            if (msg) {
+                msg.style.opacity = '1';
+                msg.innerText = "Aaj ka card aapne scratch kar liya hai!";
+            }
+        }
+    }
+
+    function revealScratchCard() {
+        let today = new Date().toDateString();
+        let overlay = document.getElementById('scratch-overlay');
+        let msg = document.getElementById('scratch-msg');
+        let walletDisplay = document.getElementById('wallet-display');
+        let dashBal = document.getElementById('dashboard-balance');
+
+        if (localStorage.getItem('earnova_last_scratch') === today) {
+            alert("Aaj ka scratch card pehle hi use ho chuka hai!");
+            return;
+        }
+
+        if (overlay) {
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'scale(1.1) translateY(-20px)';
+            overlay.style.pointerEvents = 'none';
+            
+            if (msg) msg.style.opacity = '1';
+
+            localStorage.setItem('earnova_last_scratch', today);
+            
+            let amount = 0.40;
+            let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+            let newBal = currentBal + amount;
+            localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
+
+            if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+            if (dashBal) dashBal.innerText = newBal.toFixed(2);
+
+            alert("Badhai ho! ₹0.40 aapke wallet mein add ho gaye hain.");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", initScratchCard);
+</script>
+
+<!-- SPIN & CHECKIN LOGIC -->
+<script>
+const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
+
+function earnovaSpin() {
+  const today = new Date().toDateString();
+  const result = document.getElementById('spinResult');
+  const btn = document.getElementById('spinBtn');
+  const wheel = document.getElementById('spin-wheel');
+
+  if (localStorage.getItem('earnova_spin_date') === today) {
+    result.textContent = 'Aaj ka Spin pehle hi use ho chuka hai.';
+    return;
+  }
+
+  const rewards = [
+    { amount: 0.01, chance: 30 },
+    { amount: 0.02, chance: 25 },
+    { amount: 0.05, chance: 20 },
+    { amount: 0.10, chance: 15 },
+    { amount: 0.25, chance: 8 },
+    { amount: 0.50, chance: 2 }
+  ];
+
+  let random = Math.random() * 100;
+  let selected = rewards[0].amount;
+
+  for (const reward of rewards) {
+    random -= reward.chance;
+    if (random < 0) {
+      selected = reward.amount;
+      break;
+    }
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Spinning...';
+  btn.classList.add('opacity-50', 'cursor-not-allowed');
+  result.textContent = 'Charkhi ghum rahi hai... 🎡';
+
+  if (wheel) {
+      let spinDegree = Math.floor(Math.random() * 360) + 1440;
+      wheel.style.transition = 'transform 3s ease-out';
+      wheel.style.transform = `rotate(${spinDegree}deg)`;
+  }
+
+  setTimeout(() => {
+      localStorage.setItem('earnova_spin_date', today);
+      localStorage.setItem('earnova_spin_reward', selected.toFixed(2));
+      
+      result.textContent = '🎉 Badhai ho! Aap jeete ₹' + selected.toFixed(2);
+      btn.textContent = 'Come Back Tomorrow';
+
+      let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+      let newBalance = currentBal + selected;
+      localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
+
+      let dashBalance = document.getElementById('dashboard-balance');
+      let walletDisplay = document.getElementById('wallet-display');
+      if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
+      if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
+  }, 3000);
+}
+
+function earnovaCheckin() {
+  const today = new Date().toDateString();
+  const lastDate = localStorage.getItem('earnova_checkin_date');
+  const result = document.getElementById('checkinResult');
+  const btn = document.getElementById('checkinBtn');
+  let streak = Number(localStorage.getItem('earnova_checkin_streak') || 0);
+
+  if (lastDate === today) {
+    result.textContent = 'Aaj ka Daily Check-in pehle hi ho chuka hai.';
+    return;
+  }
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  if (lastDate !== yesterday.toDateString()) {
+    streak = 0; 
+  }
+
+  streak = (streak % 7) + 1;
+  const reward = earnovaDailyRewards[streak - 1];
+
+  localStorage.setItem('earnova_checkin_date', today);
+  localStorage.setItem('earnova_checkin_streak', streak);
+
+  let streakDisplay = document.getElementById('checkin-streak');
+  if(streakDisplay) {
+      streakDisplay.textContent = 'Day ' + streak + ' of 7';
+  }
+
+  result.textContent = '🎉 Badhai ho! Daily reward ₹' + reward.toFixed(2) + ' wallet mein add ho gaye!';
+  btn.disabled = true;
+  btn.textContent = 'Claimed Today ✓';
+  btn.classList.replace('bg-[#087E8B]', 'bg-gray-400');
+  btn.classList.add('cursor-not-allowed');
+
+  let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+  let newBalance = currentBal + reward;
+  localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
+
+  let dashBalance = document.getElementById('dashboard-balance');
+  let walletDisplay = document.getElementById('wallet-display');
+  if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
+  if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
+}
 </script>
 
 </body>
