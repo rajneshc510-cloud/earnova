@@ -389,7 +389,6 @@
 <!-- LOGIN MODAL -->
 <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-[100] flex items-center justify-center backdrop-blur-sm px-4">
     <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full relative">
-        <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl font-bold">&times;</button>
         
         <div class="text-4xl font-bold mb-2 flex items-center justify-center gap-2">
             <img src="logo.png" class="h-12 w-12 rounded-full object-cover border-2 border-[#087E8B] bg-white" alt="Earnova Logo">
@@ -612,11 +611,13 @@
                 let savedName = localStorage.getItem("earnova_user_name") || "Rajnesh Chauhan";
                 document.getElementById('popup-user-name').innerText = savedName;
                 document.getElementById('user-name-display').innerText = savedName;
-            } else {
+          } else {
                 document.getElementById('nav-login-btn').classList.remove('hidden');
                 document.getElementById('user-profile-info').classList.add('hidden');
                 document.getElementById('user-name-display').innerText = 'Guest';
-            }
+              // Bina login ke user ko rokne ke liye popup khol do
+              openLoginModal();
+           }
         }
     });
 </script>
