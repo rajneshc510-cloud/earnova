@@ -18,17 +18,33 @@
             theme: { extend: { colors: { royalblue: '#087E8B', cyan: '#087E8B', } } }
         }
     </script>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .ticker-wrap { overflow: hidden; white-space: nowrap; }
-        .ticker { display: inline-block; animation: ticker 40s linear infinite; }
-        @keyframes ticker {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50%, 0); }
-        }
-    </style>
+   <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .ticker-wrap { overflow: hidden; white-space: nowrap; }
+    .ticker { display: inline-block; animation: ticker 40s linear infinite; }
+    @keyframes ticker {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-50%, 0); }
+    }
+    /* Navbar Red Underline Effect */
+    .nav-btn {
+        position: relative;
+        border: none !important;
+        background: transparent !important;
+    }
+    .nav-btn.active-tab::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #ef4444;
+        border-radius: 2px;
+    }
+</style>
 
     <!-- AdSense Verification Code -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5494788993941688" crossorigin="anonymous"></script>
@@ -810,17 +826,14 @@
 
         let btns = document.querySelectorAll('.nav-btn');
         btns.forEach(btn => {
-            btn.classList.remove('border-white', 'bg-white/20', 'shadow-sm');
-            btn.classList.add('border-transparent');
+            btn.classList.remove('active-tab');
         });
 
         let activeBtn = document.getElementById('btn-' + tabId);
         if (activeBtn) {
-            activeBtn.classList.remove('border-transparent');
-            activeBtn.classList.add('border-white', 'bg-white/20', 'shadow-sm');
+            activeBtn.classList.add('active-tab');
         }
     }
-
     document.addEventListener("DOMContentLoaded", function() {
         showTab('dashboard'); 
     });
