@@ -192,41 +192,90 @@
 
     </section>
     
-    <!-- SPIN PAGE START -->
-    <section id="spin" class="tab-content hidden">
-      <div class="bg-white rounded-2xl shadow-lg p-6 max-w-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-[#087E8B] mb-2">🎡 Lucky Spin</h2>
-        <p class="text-gray-600 mb-5">Spin karo aur reward jeeto!</p>
+   <!-- SPIN PAGE START -->
+    <section id="spin" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
+      
+      <!-- Main Container Card -->
+      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8 text-center space-y-6">
+        
+        <!-- Lucky Spin Header -->
+        <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-cyan-50 rounded-2xl text-2xl mb-2 border border-cyan-100">
+                🎡
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#087E8B]">Lucky Spin</h2>
+            <p class="text-gray-500 text-xs md:text-sm mt-1">Spin karo aur har roz naye rewards jeeto!</p>
+        </div>
 
-        <div id="spin-wheel"
-          class="w-56 h-56 rounded-full mx-auto flex items-center justify-center border-8 border-yellow-400 shadow-lg"
-          style="background: conic-gradient(#087E8B 0deg 60deg,#e0f2fe 60deg 120deg,#0e7490 120deg 180deg,#bae6fd 180deg 240deg,#087E8B 240deg 300deg,#e0f2fe 300deg 360deg);">
-          <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center font-bold text-[#087E8B]">
-            SPIN
-          </div>
+        <!-- Spin Wheel Graphic Box -->
+        <div class="relative py-2 flex flex-col items-center justify-center">
+            <div id="spin-wheel"
+              class="w-56 h-56 rounded-full mx-auto flex items-center justify-center border-8 border-amber-400 shadow-2xl relative transition-all duration-1000"
+              style="background: conic-gradient(#087E8B 0deg 60deg, #e0f2fe 60deg 120deg, #066570 120deg 180deg, #bae6fd 180deg 240deg, #087E8B 240deg 300deg, #e0f2fe 300deg 360deg);">
+              <div class="bg-slate-900 text-amber-400 rounded-full w-20 h-20 flex flex-col items-center justify-center font-black text-xs shadow-inner border-2 border-amber-400">
+                <span>SPIN</span>
+                <span class="text-[9px] text-white">WIN</span>
+              </div>
+            </div>
         </div>
 
         <button id="spinBtn" onclick="earnovaSpin()"
-          class="mt-5 bg-[#087E8B] text-white font-bold py-3 px-10 rounded-xl shadow hover:opacity-90">
-          SPIN NOW
+          class="w-full bg-gradient-to-r from-[#087E8B] to-[#066570] hover:opacity-95 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md transition text-sm md:text-base">
+          SPIN NOW ➔
         </button>
-        <p id="spinResult" class="mt-3 font-semibold text-[#087E8B]"></p>
+        <p id="spinResult" class="font-bold text-[#087E8B] text-sm"></p>
 
-        <hr class="my-7">
+        <hr class="border-gray-100 my-4">
 
-        <h2 class="text-2xl font-bold text-[#087E8B] mb-2">📅 Daily Check-in</h2>
-        <p class="text-gray-600 mb-4">Roz check-in karo aur rewards pao!</p>
-        <div id="checkin-streak" class="text-sm text-gray-500 mb-3">Day 1 of 7</div>
+        <!-- Daily Check-in Section -->
+        <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-emerald-50 rounded-2xl text-2xl mb-2 border border-emerald-100">
+                📅
+            </div>
+            <h2 class="text-xl md:text-2xl font-extrabold text-[#087E8B]">Daily Check-in</h2>
+            <p class="text-gray-500 text-xs md:text-sm mt-1">Roz check-in karo aur apne rewards claim karo!</p>
+            <div id="checkin-streak" class="text-xs font-bold text-[#087E8B] bg-cyan-50 py-1.5 px-3 rounded-full w-fit mx-auto mt-3 border border-cyan-100">Day 1 of 7 Streak</div>
+        </div>
+
+        <!-- 7 Days Reward Grid Preview -->
+        <div class="grid grid-cols-7 gap-1.5 text-center">
+            <div class="bg-teal-50 border border-teal-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D1</span><span class="text-xs font-extrabold text-[#087E8B]">₹0.01</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D2</span><span class="text-xs font-bold text-gray-600">₹0.02</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D3</span><span class="text-xs font-bold text-gray-600">₹0.03</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D4</span><span class="text-xs font-bold text-gray-600">₹0.05</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D5</span><span class="text-xs font-bold text-gray-600">₹0.07</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2 rounded-xl"><span class="block text-[9px] text-gray-500 font-bold">D6</span><span class="text-xs font-bold text-gray-600">₹0.08</span></div>
+            <div class="bg-amber-50 border border-amber-200 p-2 rounded-xl"><span class="block text-[9px] text-amber-600 font-bold">D7</span><span class="text-xs font-extrabold text-amber-600">₹0.10</span></div>
+        </div>
 
         <button id="checkinBtn" onclick="earnovaCheckin()"
-          class="bg-[#087E8B] text-white font-bold py-3 px-8 rounded-xl shadow hover:opacity-90">
-          Claim Daily Reward
+          class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md transition text-sm md:text-base">
+          Claim Daily Reward ✓
         </button>
-        <p id="checkinResult" class="mt-3 font-semibold text-[#087E8B] mb-7"></p>
+        <p id="checkinResult" class="font-bold text-[#087E8B] text-sm"></p>
 
-        <hr class="my-7">
+        <hr class="border-gray-100 my-4">
 
         <!-- PREMIUM SCRATCH CARD -->
+        <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-5 text-white shadow-lg relative overflow-hidden">
+            <div class="text-center mb-4">
+                <span class="text-2xl">🎁</span>
+                <h3 class="text-lg font-black tracking-wide mt-1">Premium Scratch Card</h3>
+                <p class="text-amber-100 text-xs">Scratch karo aur instant paise jeeto!</p>
+            </div>
+
+            <div class="relative w-full aspect-[2/1] rounded-xl overflow-hidden cursor-pointer group shadow-inner border-2 border-dashed border-amber-200 bg-white/10 flex items-center justify-center backdrop-blur-sm" onclick="revealScratchCard()">
+                <div id="scratch-overlay" class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 flex flex-col items-center justify-center z-10 transition-all duration-700 group-hover:scale-105">
+                    <span class="text-white font-black text-lg tracking-widest drop-shadow">SCRATCH ME</span>
+                    <span class="text-white/80 text-[10px] uppercase tracking-wider mt-1 bg-black/20 px-2.5 py-0.5 rounded-full">Tap to reveal</span>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center z-0 bg-emerald-900/40">
+                    <div class="text-center">
+                        <span class="text-3xl font-black text-amber-300 drop-shadow">₹0.40</span>
+                        <p id="scratch-msg" class="text-xs font-bold text-emerald-300 mt-1 opacity-0 transition-opacity duration-700">🎉 You Won!</p>
+                        
+                         <!-- PREMIUM SCRATCH CARD -->
         <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 max-w-sm mx-auto w-full">
             <div class="text-center mb-5">
                 <div class="inline-flex items-center justify-center gap-2 bg-yellow-50 px-4 py-1.5 rounded-full mb-3 border border-yellow-100">
@@ -249,10 +298,12 @@
                     <div class="text-center">
                         <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 drop-shadow-sm">₹0.40</span>
                         <p id="scratch-msg" class="text-sm font-bold text-green-600 mt-2 opacity-0 transition-opacity duration-1000 delay-300">🎉 You Won!</p>
+                        
                     </div>
                 </div>
             </div>
         </div>
+
       </div>
     </section>
     <!-- SPIN PAGE END -->
