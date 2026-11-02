@@ -288,44 +288,44 @@
       </div>
    </section>
    <!-- SPIN PAGE END -->
-
-    <!-- SCRATCH CARD PAGE START -->
+    
+<!-- SCRATCH CARD PAGE START -->
    <section id="scratch" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
-      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8 text-center space-y-6">
+      <div class="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 text-center space-y-6 overflow-hidden">
         
+        <!-- Glowing background effects -->
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
         <!-- Header -->
-        <div>
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-amber-50 rounded-2xl text-2xl mb-2 border border-amber-100">
+        <div class="relative z-10">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full text-4xl mb-3 shadow-lg border-4 border-white">
                 🎁
             </div>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#087E8B]">Daily Scratch Card</h2>
-            <p class="text-gray-500 text-xs md:text-sm mt-1">Scratch karo aur instant paise jeeto!</p>
+            <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">Scratch & Win</h2>
+            <p class="text-gray-500 text-sm font-medium mt-1">Apni ungli ya mouse se card ko scratch karein!</p>
         </div>
 
-        <!-- PREMIUM SCRATCH CARD -->
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 max-w-sm mx-auto w-full">
-            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group shadow-inner border-2 border-dashed border-orange-300 bg-gray-50 flex items-center justify-center" onclick="revealScratchCard()">
-                <div id="scratch-overlay" class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 flex flex-col items-center justify-center z-10 transition-all duration-700 ease-out group-hover:scale-105">
-                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-2 backdrop-blur-sm">
-                        <span class="text-2xl text-white">🪙</span>
-                    </div>
-                    <span class="text-white font-black text-xl md:text-2xl tracking-widest drop-shadow-lg">SCRATCH ME</span>
-                    <span class="text-white/80 text-[10px] uppercase tracking-widest mt-2 bg-black/10 px-3 py-1 rounded-full">Tap to reveal</span>
-                </div>
-
-                <div class="absolute inset-0 flex items-center justify-center z-0 bg-gradient-to-br from-green-50 to-emerald-50">
-                    <div class="text-center">
-                        <span class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600 drop-shadow-sm">₹0.40</span>
-                        <p id="scratch-msg" class="text-sm font-bold text-green-600 mt-2 opacity-0 transition-opacity duration-1000 delay-300">🎉 You Won!</p>
-                    </div>
-                </div>
+        <!-- Real Scratch Card Canvas Box -->
+        <div class="relative z-10 max-w-sm mx-auto w-full aspect-[4/3] rounded-3xl shadow-xl overflow-hidden border-4 border-amber-300 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center">
+            
+            <!-- Hidden Reward Layer underneath -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-0">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Badhai ho! Aap jeete hain</span>
+                <span id="scratch-reward-text" class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 my-2">₹0.40</span>
+                <p class="text-xs font-bold text-gray-500">Wallet mein add kar diya gaya hai</p>
             </div>
+
+            <!-- Scratchable Canvas Layer on top -->
+            <canvas id="scratchCanvas" class="absolute inset-0 w-full h-full cursor-crosshair z-20 touch-none"></canvas>
         </div>
+
+        <p id="scratch-status-msg" class="relative z-10 font-bold text-amber-600 text-sm">Card ko scratch karne ke liye uspar ungli ya mouse ghumayein!</p>
 
       </div>
    </section>
    <!-- SCRATCH CARD PAGE END -->
-
+   
    <!-- DAILY CHECK-IN PAGE START -->
    <section id="checkin" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
       
@@ -1120,6 +1120,93 @@ function earnovaCheckin() {
   if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
   if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
 }
+
+if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
+        if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
+    }
+}
+
+// === YE WALA NAYA SCRATCH CARD SCRIPT YAHAN PASTE KARO ===
+document.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById('scratchCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 350;
+    canvas.height = 260;
+
+    let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#fbbf24');
+    gradient.addColorStop(0.5, '#f59e0b');
+    gradient.addColorStop(1, '#ea580c');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 22px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('SCRATCH HERE ✨', canvas.width / 2, canvas.height / 2);
+
+    let isDrawing = false;
+
+    function scratch(e) {
+        if (!isDrawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.clientX || e.touches[0].clientX) - rect.left;
+        const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI * 2, false);
+        ctx.fill();
+
+        checkScratchProgress();
+    }
+
+    function checkScratchProgress() {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixels = imageData.data;
+        let transparentPixels = 0;
+        for (let i = 3; i < pixels.length; i += 4) {
+            if (pixels[i] === 0) transparentPixels++;
+        }
+        let percentage = (transparentPixels / (pixels.length / 4)) * 100;
+        
+        if (percentage > 40 && canvas.style.pointerEvents !== 'none') {
+            canvas.style.transition = 'opacity 0.8s ease';
+            canvas.style.opacity = '0';
+            setTimeout(() => { canvas.style.display = 'none'; }, 800);
+            
+            document.getElementById('scratch-status-msg').innerText = "🎉 Scratch Complete! Reward Credited.";
+            
+            let today = new Date().toDateString();
+            if (localStorage.getItem('earnova_last_scratch') !== today) {
+                localStorage.setItem('earnova_last_scratch', today);
+                let amount = 0.40;
+                let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+                let newBal = currentBal + amount;
+                localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
+                
+                let walletDisplay = document.getElementById('wallet-display');
+                let dashBal = document.getElementById('dashboard-balance');
+                if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+                if (dashBal) dashBal.innerText = newBal.toFixed(2);
+            }
+        }
+    }
+
+    canvas.addEventListener('mousedown', () => isDrawing = true);
+    canvas.addEventListener('mousemove', scratch);
+    window.addEventListener('mouseup', () => isDrawing = false);
+
+    canvas.addEventListener('touchstart', () => isDrawing = true);
+    canvas.addEventListener('touchmove', scratch);
+    window.addEventListener('touchend', () => isDrawing = false);
+});
+// ========================================================
+
+</script> <!-- Line 1123 -->    
+    
 </script>
 
 </body>
