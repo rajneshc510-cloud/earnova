@@ -172,31 +172,53 @@
             </div>
         </div>
 
-       <!-- PREMIUM FEATURES GRID (Emojis removed & text centered) -->
+      <!-- PREMIUM FEATURES GRID -->
         <div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-4">
-                <div onclick="showTab('tasks')" class="bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer text-center flex flex-col justify-center items-center">
-                    <h4 class="font-extrabold text-slate-800 text-sm md:text-base">High-Paying Tasks</h4>
-                    <p class="text-[11px] text-gray-500 mt-1">Setup apps & earn cash.</p>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+                
+                <!-- Task Box -->
+                <div onclick="showTab('tasks')" class="group relative bg-white hover:bg-gradient-to-br hover:from-teal-50/50 hover:to-white p-5 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-teal-200 text-center flex flex-col justify-center items-center overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#087E8B] to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#087E8B] flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform shadow-inner">
+                        💼
+                    </div>
+                    <h4 class="font-black text-slate-800 text-sm md:text-base group-hover:text-[#087E8B] transition-colors">High-Paying Tasks</h4>
+                    <p class="text-[11px] text-gray-400 mt-1 font-medium">Setup apps & earn cash.</p>
                 </div>
 
-                <div onclick="showTab('spin')" class="bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer text-center flex flex-col justify-center items-center">
-                    <h4 class="font-extrabold text-slate-800 text-sm md:text-base">Lucky Spin & Win</h4>
-                    <p class="text-[11px] text-gray-500 mt-1">Spin daily for rewards.</p>
+                <!-- Spin Box -->
+                <div onclick="showTab('spin')" class="group relative bg-white hover:bg-gradient-to-br hover:from-amber-50/50 hover:to-white p-5 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-amber-200 text-center flex flex-col justify-center items-center overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform shadow-inner">
+                        🎡
+                    </div>
+                    <h4 class="font-black text-slate-800 text-sm md:text-base group-hover:text-amber-600 transition-colors">Lucky Spin & Win</h4>
+                    <p class="text-[11px] text-gray-400 mt-1 font-medium">Spin daily for rewards.</p>
                 </div>
 
-                <div onclick="showTab('spin')" class="bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer text-center flex flex-col justify-center items-center">
-                    <h4 class="font-extrabold text-slate-800 text-sm md:text-base">Daily Check-in</h4>
-                    <p class="text-[11px] text-gray-500 mt-1">Claim streak rewards.</p>
+                <!-- Check-in Box -->
+                <div onclick="showTab('spin')" class="group relative bg-white hover:bg-gradient-to-br hover:from-emerald-50/50 hover:to-white p-5 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-emerald-200 text-center flex flex-col justify-center items-center overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform shadow-inner">
+                        📅
+                    </div>
+                    <h4 class="font-black text-slate-800 text-sm md:text-base group-hover:text-emerald-600 transition-colors">Daily Check-in</h4>
+                    <p class="text-[11px] text-gray-400 mt-1 font-medium">Claim streak rewards.</p>
                 </div>
 
-                <div onclick="showTab('refer')" class="bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer text-center flex flex-col justify-center items-center">
-                    <h4 class="font-extrabold text-slate-800 text-sm md:text-base">Referral Program</h4>
-                    <p class="text-[11px] text-gray-500 mt-1">Invite & earn cash bonus.</p>
+                <!-- Referral Box -->
+                <div onclick="showTab('refer')" class="group relative bg-white hover:bg-gradient-to-br hover:from-cyan-50/50 hover:to-white p-5 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-cyan-200 text-center flex flex-col justify-center items-center overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-[#087E8B] flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform shadow-inner">
+                        🤝
+                    </div>
+                    <h4 class="font-black text-slate-800 text-sm md:text-base group-hover:text-[#087E8B] transition-colors">Referral Program</h4>
+                    <p class="text-[11px] text-gray-400 mt-1 font-medium">Invite & earn cash bonus.</p>
                 </div>
+
             </div>
         </div>
-
+        
        <!-- RECENT PAYOUTS TICKER -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2.5 overflow-hidden">
             <div class="flex items-center gap-2">
