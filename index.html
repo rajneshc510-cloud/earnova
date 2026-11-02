@@ -590,32 +590,31 @@
 
 <!-- LOGIN MODAL -->
 <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-[100] flex items-center justify-center backdrop-blur-sm px-4">
-    <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full relative">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full relative text-center">
         
-        <div class="text-4xl font-bold mb-2 flex items-center justify-center gap-2">
-            <img src="logo.png" class="h-12 w-12 rounded-full object-cover border-2 border-[#087E8B] bg-white" alt="Earnova Logo">
+        <div class="text-3xl font-extrabold mb-1 text-slate-800 tracking-tight">
             Earnova
         </div>
         
-        <p class="text-sm text-gray-500 text-center mb-6">Login to your Earnova account</p>
+        <p class="text-xs text-gray-500 text-center mb-6 font-medium">Login to your Earnova account</p>
         
-        <input type="email" id="login-email" placeholder="Email Address" class="w-full mb-4 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#087E8B]">
-        <input type="password" id="login-pass" placeholder="Password" class="w-full mb-6 px-4 py-3 border rounded-lg focus:outline-none focus:border-[#087E8B]">
+        <input type="email" id="login-email" placeholder="Email Address" class="w-full mb-4 px-4 py-3 border rounded-xl focus:outline-none focus:border-[#087E8B] text-sm">
+        <input type="password" id="login-pass" placeholder="Password" class="w-full mb-6 px-4 py-3 border rounded-xl focus:outline-none focus:border-[#087E8B] text-sm">
         
-        <button onclick="simulateLogin()" class="w-full bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3 rounded-lg mb-4 shadow-md">Login</button>
+        <button onclick="simulateLogin()" class="w-full bg-[#087E8B] hover:bg-[#066570] text-white font-bold py-3 rounded-xl mb-4 shadow-md text-sm transition">Login</button>
         
         <div class="flex items-center justify-center gap-2 mb-4">
             <hr class="w-full border-gray-200">
-            <span class="text-gray-400 text-sm">OR</span>
+            <span class="text-gray-400 text-xs">OR</span>
             <hr class="w-full border-gray-200">
         </div>
         
-        <button onclick="loginWithGoogle()" class="w-full flex items-center justify-center gap-2 border-2 border-gray-200 rounded-lg py-3 hover:bg-gray-50 transition font-medium text-gray-700">
+        <button onclick="loginWithGoogle()" class="w-full flex items-center justify-center gap-2 border-2 border-gray-200 rounded-xl py-3 hover:bg-gray-50 transition font-medium text-gray-700 text-sm">
             <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5" alt="Google"> Continue with Google
         </button>
     </div>
 </div>
-
+    
 <!-- TASK TERMS POPUP -->
 <div id="taskPopup" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 px-4 transition-all">
     <div class="bg-white rounded-2xl p-5 w-full max-w-sm shadow-xl">
