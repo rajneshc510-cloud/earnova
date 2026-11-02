@@ -85,40 +85,53 @@
                 <div id="user-profile-info" class="hidden relative flex items-center">
                     <img id="nav-profile-pic" src="" alt="Profile" onclick="window.toggleProfilePopup()" class="w-9 h-9 rounded-full border-2 border-green-400 cursor-pointer shadow-md hover:scale-105 transition-transform object-cover">
                     
-                   <div id="profile-popup" class="hidden absolute right-0 top-12 w-64 bg-white rounded-xl shadow-xl border border-gray-200 z-50 overflow-hidden text-left transition-all">
-    
-    <!-- User Details Section -->
-    <div class="p-4 border-b border-gray-100 bg-gray-50/50">
-        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-1">Logged in as</p>
-        <p id="popup-user-name" class="text-base font-bold text-slate-800 truncate">Guest</p>
-        <p id="popup-user-email" class="text-xs text-gray-500 truncate mt-0.5">guest@email.com</p>
+                <!-- PREMIUM PROFILE DROPDOWN POPUP -->
+    <div id="profile-popup" class="hidden absolute right-0 top-12 w-72 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 text-left transition-all">
         
-        <!-- Member Since (New) -->
-        <div class="mt-3 flex items-center gap-1.5 text-[10px] font-semibold text-[#087E8B] bg-cyan-50 w-fit px-2 py-1 rounded-md border border-cyan-100">
-            <span>📅</span> Member since: Oct 2026
+        <!-- Header Section with Teal Gradient -->
+        <div class="bg-gradient-to-br from-[#087E8B] to-[#054e56] p-4 text-white relative">
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+            <span class="block text-[9px] font-bold uppercase tracking-wider text-cyan-200 mb-1">Logged in as</span>
+            <h4 class="font-black text-base text-white truncate" id="popup-user-name">Rajnesh Chauhan</h4>
+            <p class="text-xs text-cyan-100 truncate" id="popup-user-email">rajnesh510@gmail.com</p>
+            
+            <div class="mt-3 inline-flex items-center gap-1.5 bg-black/20 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-[10px] text-amber-300 font-bold">
+                <span>📅</span> Member since: Oct 2026
+            </div>
         </div>
+
+        <!-- Menu Links List -->
+        <div class="p-2 space-y-1 text-xs font-semibold text-slate-700">
+            <a href="#" onclick="showTab('dashboard')" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition">
+                <span class="text-base">👤</span> My Profile
+            </a>
+            <a href="#" onclick="showTab('wallet')" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition">
+                <span class="text-base">💳</span> Wallet Dashboard
+            </a>
+            <a href="#" onclick="showTab('tasks')" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition">
+                <span class="text-base">⚙️</span> Settings & Security
+            </a>
+            <a href="mailto:rajneshc510@gmail.com" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition">
+                <span class="text-base">🎧</span> Help & Support
+            </a>
+            <a href="privacy.html" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition">
+                <span class="text-base">🔒</span> Privacy Policy
+            </a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition text-amber-600">
+                <span class="text-base">⭐</span> Subscription Status
+            </a>
+        </div>
+
+        <!-- Logout Footer Button -->
+        <div class="p-2 bg-gray-50 border-t border-gray-100">
+            <button onclick="logout()" class="w-full flex items-center justify-between px-3 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-xl transition text-xs">
+                <span class="flex items-center gap-2">🚪 LOGOUT</span>
+                <span>⏻</span>
+            </button>
+        </div>
+
     </div>
-
-    <!-- Menu Options -->
-    <div class="flex flex-col py-1.5">
-        
-       <!-- Help & Support -->
-        <a href="mailto:rajneshc510@gmail.com" class="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-slate-800 hover:bg-gray-50 transition-colors flex items-center gap-3">
-            <span class="text-lg">🎧</span> Help & Support
-        </a>
-
-        <!-- Privacy Policy -->
-        <a href="privacy.html" target="_blank" class="w-full text-left px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-slate-800 hover:bg-gray-50 transition-colors flex items-center gap-3">
-            <span class="text-lg">🔒</span> Privacy Policy
-        </a>
-
-        <hr class="border-gray-100 my-1">
-
-        <!-- Logout -->
-        <button onclick="logout()" class="w-full text-left px-4 py-2.5 text-sm font-bold text-red-600 hover:bg-red-50 transition-colors flex items-center gap-3">
-            <span class="text-lg">🚪</span> Logout
-        </button>
-
     </div>
 </div>
                 </div>
