@@ -188,7 +188,7 @@
                 </div>
 
                 <!-- Spin Box -->
-                <div onclick="showTab('spin')" class="group relative bg-white hover:bg-gradient-to-br hover:from-amber-50/50 hover:to-white p-3.5 md:p-5 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100 hover:border-amber-200 text-center flex flex-col justify-center items-center overflow-hidden">
+                <div onclick="showTab('checkin')" class="group relative bg-white hover:bg-gradient-to-br hover:from-amber-50/50 hover:to-white p-3.5 md:p-5 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100 hover:border-amber-200 text-center flex flex-col justify-center items-center overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-lg md:text-xl mb-2 group-hover:scale-110 transition-transform shadow-inner">
                         🎡
@@ -343,6 +343,41 @@
       </div>
    </section>
    <!-- SCRATCH CARD PAGE END -->
+
+    <!-- DAILY CHECK-IN PAGE START -->
+   <section id="checkin" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
+      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-8 text-center space-y-6">
+        
+        <!-- Header -->
+        <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-emerald-50 rounded-2xl text-2xl mb-2 border border-emerald-100">
+                📅
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#087E8B]">Daily Check-in</h2>
+            <p class="text-gray-500 text-xs md:text-sm mt-1">Roz check-in karo aur apne rewards claim karo!</p>
+            <div id="checkin-streak" class="text-xs font-bold text-[#087E8B] bg-cyan-50 py-1.5 px-3 rounded-full w-fit mx-auto mt-3 border border-cyan-100">Day 1 of 7 Streak</div>
+        </div>
+
+        <!-- 7 Days Reward Grid -->
+        <div class="grid grid-cols-7 gap-2 text-center">
+            <div class="bg-teal-50 border border-teal-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D1</span><span class="text-xs font-black text-[#087E8B]">₹0.01</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D2</span><span class="text-xs font-bold text-gray-600">₹0.02</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D3</span><span class="text-xs font-bold text-gray-600">₹0.03</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D4</span><span class="text-xs font-bold text-gray-600">₹0.05</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D5</span><span class="text-xs font-bold text-gray-600">₹0.07</span></div>
+            <div class="bg-gray-50 border border-gray-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-gray-500 font-bold mb-1">D6</span><span class="text-xs font-bold text-gray-600">₹0.08</span></div>
+            <div class="bg-amber-50 border border-amber-200 p-2.5 rounded-2xl shadow-sm"><span class="block text-[10px] text-amber-600 font-bold mb-1">D7</span><span class="text-xs font-black text-amber-600">₹0.10</span></div>
+        </div>
+
+        <button id="checkinBtn" onclick="earnovaCheckin()"
+          class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md transition text-sm md:text-base">
+          Claim Daily Reward ✓
+        </button>
+        <p id="checkinResult" class="font-bold text-[#087E8B] text-sm"></p>
+
+      </div>
+   </section>
+   <!-- DAILY CHECK-IN PAGE END -->
     
     <!-- TASKS TAB -->
     <section id="tasks" class="tab-content">
