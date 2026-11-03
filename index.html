@@ -325,7 +325,7 @@
             </div>
 
             <!-- Scratchable Canvas Top Layer -->
-            <canvas id="realScratchCanvas" class="absolute inset-0 w-full h-full cursor-crosshair z-20 touch-none"></canvas>
+            <canvas id="realScratchCanvas" width="350" height="260" class="absolute inset-0 w-full h-full cursor-crosshair z-20 touch-none"></canvas>
         </div>
 
         <p id="scratch-status-msg" class="relative z-10 font-bold text-amber-600 text-sm">Card par ungli ghumakar scratch karein!</p>
@@ -1134,83 +1134,11 @@ if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
     }
 }
 
-// === YE WALA NAYA SCRATCH CARD SCRIPT YAHAN PASTE KARO ===
-document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById('scratchCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = 350;
-    canvas.height = 260;
-
-    let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, '#fbbf24');
-    gradient.addColorStop(0.5, '#f59e0b');
-    gradient.addColorStop(1, '#ea580c');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 22px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('SCRATCH HERE ✨', canvas.width / 2, canvas.height / 2);
-
-    let isDrawing = false;
-
-    function scratch(e) {
-        if (!isDrawing) return;
-        const rect = canvas.getBoundingClientRect();
-        const x = (e.clientX || e.touches[0].clientX) - rect.left;
-        const y = (e.clientY || e.touches[0].clientY) - rect.top;
-
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.beginPath();
-        ctx.arc(x, y, 25, 0, Math.PI * 2, false);
-        ctx.fill();
-
-        checkScratchProgress();
-    }
-
-    function checkScratchProgress() {
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        let pixels = imageData.data;
-        let transparentPixels = 0;
-        for (let i = 3; i < pixels.length; i += 4) {
-            if (pixels[i] === 0) transparentPixels++;
-        }
-        let percentage = (transparentPixels / (pixels.length / 4)) * 100;
-        
-        if (percentage > 40 && canvas.style.pointerEvents !== 'none') {
-            canvas.style.transition = 'opacity 0.8s ease';
-            canvas.style.opacity = '0';
-            setTimeout(() => { canvas.style.display = 'none'; }, 800);
-            
-            document.getElementById('scratch-status-msg').innerText = "🎉 Scratch Complete! Reward Credited.";
-            
-            let today = new Date().toDateString();
-            if (localStorage.getItem('earnova_last_scratch') !== today) {
-                localStorage.setItem('earnova_last_scratch', today);
-                let amount = 0.40;
-                let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-                let newBal = currentBal + amount;
-                localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
-                
-                let walletDisplay = document.getElementById('wallet-display');
-                let dashBal = document.getElementById('dashboard-balance');
-                if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
-                if (dashBal) dashBal.innerText = newBal.toFixed(2);
-            }
-        }
-    }
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initScratchCanvas() {
         const canvas = document.getElementById('realScratchCanvas');
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
-
-        // Match canvas actual size to display size
-        canvas.width = canvas.offsetWidth || 350;
-        canvas.height = canvas.offsetHeight || 260;
 
         // Draw scratch coating
         let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
@@ -1266,7 +1194,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 document.getElementById('scratch-status-msg').innerText = "🎉 Scratch Complete! ₹0.40 Added.";
 
-                // Add to wallet
                 let today = new Date().toDateString();
                 if (localStorage.getItem('earnova_last_scratch') !== today) {
                     localStorage.setItem('earnova_last_scratch', today);
@@ -1283,18 +1210,32 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(e); });
-        canvas.addEventListener('mousemove', scratch);
-        window.addEventListener('mouseup', () => isDrawing = false);
+        canvas.onmousedown = (e) => { isDrawing = true; scratch(e); };
+        canvas.onmousemove = scratch;
+        window.onmouseup = () => isDrawing = false;
 
-        canvas.addEventListener('touchstart', (e) => { isDrawing = true; scratch(e); });
-        canvas.addEventListener('touchmove', scratch);
-        window.addEventListener('touchend', () => isDrawing = false);
+        canvas.ontouchstart = (e) => { isDrawing = true; scratch(e); };
+        canvas.ontouchmove = scratch;
+        window.ontouchend = () => isDrawing = false;
+    }
+
+    // Also update your showTab function to call initScratchCanvas() when switching to 'scratch' tab
+    const originalShowTab = window.showTab;
+    window.showTab = function(tabName) {
+        if (typeof originalShowTab === 'function') originalShowTab(tabName);
+        if (tabName === 'scratch') {
+            setTimeout(initScratchCanvas, 100);
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initScratchCanvas();
     });
+</script>
 
 // ========================================================
 
-</script> <!-- Line 1123 -->    
+<!-- Line 1123 -->    
     
 
 </body>
