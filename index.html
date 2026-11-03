@@ -1140,6 +1140,16 @@ if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
 
+        // Check if user already scratched today
+        let today = new Date().toDateString();
+        let lastScratch = localStorage.getItem('earnova_last_scratch');
+        
+        if (lastScratch === today) {
+            canvas.style.display = 'none';
+            document.getElementById('scratch-status-msg').innerText = "⏳ Aapne aaj ka scratch card use kar liya hai! Kal wapas aana.";
+            return;
+        }
+
         // Draw scratch coating
         let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
         gradient.addColorStop(0, '#fbbf24');
@@ -1192,21 +1202,20 @@ if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
                 canvas.style.opacity = '0';
                 setTimeout(() => { canvas.style.display = 'none'; }, 600);
 
-                document.getElementById('scratch-status-msg').innerText = "🎉 Scratch Complete! ₹0.40 Added.";
+                document.getElementById('scratch-status-msg').innerText = "🎉 Scratch Complete! ₹0.40 Added to Wallet.";
 
-                let today = new Date().toDateString();
-                if (localStorage.getItem('earnova_last_scratch') !== today) {
-                    localStorage.setItem('earnova_last_scratch', today);
-                    let amount = 0.40;
-                    let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-                    let newBal = currentBal + amount;
-                    localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
+                // Save today's date so user can't use it again today
+                localStorage.setItem('earnova_last_scratch', today);
+                
+                let amount = 0.40;
+                let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+                let newBal = currentBal + amount;
+                localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
 
-                    let walletDisplay = document.getElementById('wallet-display');
-                    let dashBal = document.getElementById('dashboard-balance');
-                    if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
-                    if (dashBal) dashBal.innerText = newBal.toFixed(2);
-                }
+                let walletDisplay = document.getElementById('wallet-display');
+                let dashBal = document.getElementById('dashboard-balance');
+                if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+                if (dashBal) dashBal.innerText = newBal.toFixed(2);
             }
         }
 
@@ -1219,7 +1228,6 @@ if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
         window.ontouchend = () => isDrawing = false;
     }
 
-    // Also update your showTab function to call initScratchCanvas() when switching to 'scratch' tab
     const originalShowTab = window.showTab;
     window.showTab = function(tabName) {
         if (typeof originalShowTab === 'function') originalShowTab(tabName);
