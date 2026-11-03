@@ -867,7 +867,7 @@
 
             const myReferralCode = user.uid.substring(0, 8).toUpperCase();
             const refLinkInput = document.getElementById('referral-link');
-            if (refLinkInput) refLinkInput.value = `https://rajneshc510-cloud.github.io/?ref=${myReferralCode}`;
+            if (refLinkInput) refLinkInput.value = `https://rajneshc510-cloud.github.io/earnova/?ref=${myReferralCode}`;
 
             const userRef = doc(db, "users", user.uid);
             const userSnap = await getDoc(userRef);
