@@ -1232,9 +1232,13 @@ if (dashBalance) dashBalance.innerText = newBalance.toFixed(2);
     window.showTab = function(tabName) {
         if (typeof originalShowTab === 'function') originalShowTab(tabName);
         if (tabName === 'scratch') {
-            setTimeout(initScratchCanvas, 100);
+            setTimeout(initScratchCardCanvas, 100);
         }
     };
+
+    function initScratchCardCanvas() {
+        initScratchCanvas();
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
         initScratchCanvas();
