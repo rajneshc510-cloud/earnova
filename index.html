@@ -19,6 +19,15 @@
         }
     </script>
    <style>
+
+       /* Mobile Touch Support */
+html, body {
+    touch-action: manipulation;
+}
+
+button, a, [onclick] {
+    -webkit-tap-highlight-color: transparent;
+}
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
@@ -578,7 +587,7 @@
                     </div>
                     <div class="bg-black/20 backdrop-blur-md px-4 py-3.5 rounded-xl border border-white/10 flex items-center justify-between">
                         <span class="text-xs text-gray-200 font-medium">Pending Withdrawals</span>
-                        <span class="text-base font-bold text-amber-300">₹<span id="pending-display">0.00</span></span>
+                        <span class="text-base font-bold text-amber-300">₹<span id="pending-display">295.00</span></span>
                     </div>
                 </div>
             </div>
@@ -668,6 +677,17 @@
     </div>
 </div>
 
+<script>
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('button, [onclick]').forEach(function (el) {
+            el.style.touchAction = 'manipulation';
+            el.style.pointerEvents = 'auto';
+        });
+    });
+})();
+</script>
+    
 <!-- FIREBASE & APP LOGIC SCRIPT -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
@@ -916,10 +936,35 @@
         document.getElementById('taskPopup').classList.remove('flex');
     }
 
+    // Helper function to add balance to Firebase Firestore or localStorage
+    async function addRewardToWallet(amount) {
+        if (auth.currentUser) {
+            try {
+                const userRef = doc(db, "users", auth.currentUser.uid);
+                const snap = await getDoc(userRef);
+                let currentBal = 0;
+                if (snap.exists()) {
+                    currentBal = Number(snap.data().walletBalance || 0);
+                }
+                await updateDoc(userRef, {
+                    walletBalance: currentBal + amount
+                });
+            } catch (err) {
+                console.error("Firestore balance update error:", err);
+            }
+        } else {
+            let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
+            let newBal = currentBal + amount;
+            localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
+            let walletDisplay = document.getElementById('wallet-display');
+            if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+        }
+    }
+
     // --- SPIN LOGIC ---
     const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
 
-    window.earnovaSpin = function() {
+    window.earnovaSpin = async function() {
         const today = new Date().toDateString();
         const result = document.getElementById('spinResult');
         const btn = document.getElementById('spinBtn');
@@ -960,22 +1005,17 @@
             wheel.style.transform = `rotate(${spinDegree}deg)`;
         }
 
-        setTimeout(() => {
+        setTimeout(async () => {
             localStorage.setItem('earnova_spin_date', today);
             result.textContent = '🎉 Badhai ho! Aap jeete ₹' + selected.toFixed(2);
             btn.textContent = 'Come Back Tomorrow';
 
-            let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-            let newBalance = currentBal + selected;
-            localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
-
-            let walletDisplay = document.getElementById('wallet-display');
-            if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
+            await addRewardToWallet(selected);
         }, 3000);
     }
 
     // --- CHECK-IN LOGIC ---
-    window.earnovaCheckin = function() {
+    window.earnovaCheckin = async function() {
         const today = new Date().toDateString();
         const lastDate = localStorage.getItem('earnova_checkin_date');
         const result = document.getElementById('checkinResult');
@@ -1010,12 +1050,7 @@
         btn.textContent = 'Claimed Today ✓';
         btn.classList.add('bg-gray-400', 'cursor-not-allowed');
 
-        let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-        let newBalance = currentBal + reward;
-        localStorage.setItem('earnova_saved_balance', newBalance.toFixed(2));
-
-        let walletDisplay = document.getElementById('wallet-display');
-        if (walletDisplay) walletDisplay.innerText = newBalance.toFixed(2);
+        await addRewardToWallet(reward);
     }
 
     // --- SCRATCH CARD CANVAS LOGIC WITH 24-HOUR LIMIT ---
@@ -1073,7 +1108,7 @@
             checkProgress();
         }
 
-        function checkProgress() {
+        async function checkProgress() {
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             let pixels = imageData.data;
             let transparent = 0;
@@ -1091,13 +1126,7 @@
 
                 localStorage.setItem('earnova_last_scratch', today);
                 
-                let amount = 0.40;
-                let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-                let newBal = currentBal + amount;
-                localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
-
-                let walletDisplay = document.getElementById('wallet-display');
-                if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+                await addRewardToWallet(0.40);
             }
         }
 
@@ -1119,7 +1148,7 @@
     };
 
     document.addEventListener("DOMContentLoaded", () => {
-        showTab('dashboard');
+        window.showTab('dashboard');
         initScratchCanvas();
     });
 </script>
