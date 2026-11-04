@@ -19,9 +19,14 @@
         }
     </script>
    <style>
-       /* Mobile Touch Fix */
-body, main, section, div, button {
-    pointer-events: auto !important;
+
+       /* Mobile Touch Support */
+html, body {
+    touch-action: manipulation;
+}
+
+button, a, [onclick] {
+    -webkit-tap-highlight-color: transparent;
 }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
     .tab-content { display: none; }
@@ -672,6 +677,17 @@ body, main, section, div, button {
     </div>
 </div>
 
+<script>
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('button, [onclick]').forEach(function (el) {
+            el.style.touchAction = 'manipulation';
+            el.style.pointerEvents = 'auto';
+        });
+    });
+})();
+</script>
+    
 <!-- FIREBASE & APP LOGIC SCRIPT -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
