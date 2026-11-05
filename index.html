@@ -803,7 +803,7 @@ body *, button, .nav-btn, section, div, nav {
         if (user) {
             document.getElementById('nav-login-btn').classList.add('hidden');
             document.getElementById('user-profile-info').classList.remove('hidden');
-            document.getElementById('nav-profile-pic').src = user.photoURL || "logo.png";
+          document.getElementById('nav-profile-pic').src = user.photoURL || "https://www.svgrepo.com/show/498547/profile.svg";
             document.getElementById('popup-user-name').innerText = user.displayName || 'User';
             document.getElementById('popup-user-email').innerText = user.email || '';
             document.getElementById('user-name-display').innerText = user.displayName || 'Rajnesh';
