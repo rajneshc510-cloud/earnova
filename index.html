@@ -286,165 +286,213 @@ body *, button, .nav-btn, section, div, nav {
    </section>
    <!-- SPIN PAGE END -->
 
-    
-<!-- EARNOVA TAP & WIN -->
+<style>
+/* EARNOVA RESPONSIVE SCRATCH PAGE */
+
+#scratch {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 16px 40px;
+}
+
+#scratch .scratch-wrapper {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+#scratch .scratch-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+#scratch .scratch-heading h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 12px 0;
+  color: #172033;
+}
+
+#scratch .scratch-heading p {
+  font-size: clamp(14px, 2vw, 18px);
+  color: #64748b;
+}
+
+#scratch .scratch-box {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#scratch .scratch-card {
+  width: 100%;
+  max-width: 380px;
+  min-height: 190px;
+  margin: 22px auto 0;
+  padding: 22px 14px;
+  box-sizing: border-box;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #061438,
+    #087e8b,
+    #061438
+  );
+  border: 2px solid #00d5c5;
+  box-shadow: 0 10px 25px rgba(8,126,139,0.22);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+#scratch .scratch-card:active {
+  transform: scale(0.97);
+}
+
+#scratch .scratch-card h2 {
+  font-size: clamp(23px, 4vw, 30px);
+  color: #ffd65a;
+  font-weight: 900;
+  margin: 12px 0;
+}
+
+#scratch .scratch-card p {
+  color: #d7fffa;
+  font-size: 15px;
+}
+
+#scratch .scratch-gift {
+  font-size: 46px;
+}
+
+#scratch .scratch-result {
+  padding: 20px 10px;
+}
+
+#scratch .scratch-result h2 {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #e6a817;
+  font-weight: 900;
+}
+
+#scratch .scratch-status {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  #scratch {
+    padding: 18px 14px 30px;
+  }
+
+  #scratch .scratch-heading {
+    margin-bottom: 20px;
+  }
+
+  #scratch .scratch-box {
+    padding: 22px 15px;
+    border-radius: 20px;
+  }
+
+  #scratch .scratch-card {
+    max-width: 320px;
+    min-height: 175px;
+    padding: 18px 12px;
+    margin-top: 18px;
+  }
+
+  #scratch .scratch-gift {
+    font-size: 38px;
+  }
+
+  #scratch .scratch-status {
+    font-size: 13px;
+  }
+}
+</style>
+
 <section id="scratch" class="tab-content hidden">
-  <div class="max-w-3xl mx-auto px-4 py-8">
+  <div class="scratch-wrapper">
 
     <button onclick="showTab('dashboard')"
-      class="font-bold text-teal-700 mb-6">
+      style="color:#087e8b;font-weight:800;margin-bottom:24px;">
       ← Back to Home
     </button>
 
-    <div class="text-center mb-8">
-      <p class="text-teal-600 font-bold tracking-widest">
+    <div class="scratch-heading">
+      <div style="color:#087e8b;font-weight:800;
+                  letter-spacing:3px;font-size:14px;">
         EARNOVA REWARDS
-      </p>
-      <h1 class="text-4xl font-black text-slate-800 mt-2">
-        Scratch <span class="text-teal-600">& Win</span>
+      </div>
+
+      <h1>
+        Scratch <span style="color:#087e8b;">& Win</span>
       </h1>
-      <p class="text-slate-500 mt-2">
-        Tap the card and win exciting rewards!
-      </p>
+
+      <p>Tap the card and win exciting rewards!</p>
     </div>
 
-    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10 text-center">
+    <div class="scratch-box">
 
-      <div class="text-sm text-slate-500 font-bold">
+      <p style="font-weight:800;color:#64748b;
+                font-size:16px;">
         YOUR DAILY REWARD
-      </div>
+      </p>
 
       <div id="tap-reward-card"
-        onclick="earnovaTapScratch()"
-        class="mt-6 cursor-pointer select-none rounded-3xl
-        p-10 text-white shadow-2xl
-        bg-gradient-to-br from-slate-950 via-teal-800 to-slate-900
-        border border-teal-400">
+           class="scratch-card"
+           onclick="earnovaTapScratch()">
 
-        <div class="text-6xl mb-5">🎁</div>
+        <div class="scratch-gift">🎁</div>
 
-        <h2 class="text-3xl font-black text-amber-300">
-          TAP TO REVEAL
-        </h2>
+        <h2>TAP TO REVEAL</h2>
 
-        <p class="mt-3 text-teal-100">
-          Your lucky reward is waiting!
-        </p>
+        <p>Your lucky reward is waiting!</p>
 
-        <div class="mt-6 text-4xl">✨ 💰 ✨</div>
+        <div style="font-size:25px;margin-top:10px;">
+          ✨ 💰 ✨
+        </div>
       </div>
 
-      <div id="tap-result" class="hidden mt-7">
-        <div class="text-5xl mb-3">🏆</div>
-        <p class="text-slate-500 font-bold">CONGRATULATIONS!</p>
-        <h2 id="tap-win-amount"
-          class="text-5xl font-black text-amber-500 mt-3">
-          ₹0.00
-        </h2>
-        <p class="text-teal-700 font-semibold mt-3">
+      <div id="tap-result" class="scratch-result hidden">
+        <div style="font-size:45px;">🏆</div>
+
+        <p style="color:#64748b;font-weight:800;">
+          CONGRATULATIONS!
+        </p>
+
+        <h2 id="tap-win-amount">₹0.00</h2>
+
+        <p style="color:#087e8b;font-weight:700;">
           Reward added to your wallet!
         </p>
       </div>
 
-      <p id="tap-status"
-        class="mt-6 text-slate-500 font-semibold">
+      <p id="tap-status" class="scratch-status">
         🎁 Tap the card to reveal your reward.
       </p>
 
-      <div class="mt-6 bg-teal-50 rounded-xl p-4 text-sm text-teal-800">
-        One free reward every day.
+      <div style="background:#e8f8f6;color:#087e8b;
+                  border-radius:12px;padding:12px;
+                  margin-top:18px;font-size:13px;">
+        🎁 One free reward every day.
       </div>
 
     </div>
   </div>
 </section>
-
-<script>
-(function () {
-
-  window.earnovaTapScratch = async function () {
-
-    const today = new Date().toDateString();
-    const card = document.getElementById('tap-reward-card');
-    const result = document.getElementById('tap-result');
-    const status = document.getElementById('tap-status');
-    const amountDisplay = document.getElementById('tap-win-amount');
-
-    if (!card || card.dataset.claiming === 'true') return;
-
-    if (localStorage.getItem('earnova_last_scratch') === today) {
-      card.style.cursor = 'default';
-      card.onclick = null;
-      status.textContent = '⏳ Aaj ka reward already claim ho chuka hai. Kal wapas aana!';
-      return;
-    }
-
-    card.dataset.claiming = 'true';
-
-    // All rewards are below ₹1
-    const rewards = [0.05, 0.10, 0.15, 0.20, 0.25, 0.40, 0.50];
-
-    const reward = rewards[
-      Math.floor(Math.random() * rewards.length)
-    ];
-
-    card.style.transform = 'scale(0.95)';
-    card.style.opacity = '0.5';
-
-    status.textContent = '✨ Revealing your reward...';
-
-    await new Promise(resolve => setTimeout(resolve, 900));
-
-    amountDisplay.textContent = '₹' + reward.toFixed(2);
-
-    card.classList.add('hidden');
-    result.classList.remove('hidden');
-
-    localStorage.setItem('earnova_last_scratch', today);
-
-    try {
-      if (typeof addRewardToWallet === 'function') {
-        await addRewardToWallet(reward);
-      } else {
-        throw new Error('Wallet function unavailable');
-      }
-
-      status.textContent = '🎉 Reward successfully added to your wallet!';
-
-    } catch (error) {
-      localStorage.removeItem('earnova_last_scratch');
-      card.dataset.claiming = 'false';
-      card.classList.remove('hidden');
-      result.classList.add('hidden');
-      status.textContent = 'Wallet update failed. Please try again.';
-      console.error(error);
-    }
-
-  };
-
-  const previousShowTab = window.showTab;
-
-  window.showTab = function(tabName) {
-    if (typeof previousShowTab === 'function') {
-      previousShowTab(tabName);
-    }
-
-    if (tabName === 'scratch') {
-      const today = new Date().toDateString();
-      const card = document.getElementById('tap-reward-card');
-      const result = document.getElementById('tap-result');
-      const status = document.getElementById('tap-status');
-
-      if (card && localStorage.getItem('earnova_last_scratch') === today) {
-        card.classList.add('hidden');
-        result.classList.remove('hidden');
-        status.textContent = '⏳ Aaj ka reward claim ho chuka hai. Kal wapas aana!';
-      }
-    }
-  };
-
-})();
-</script>
 
    
    <!-- DAILY CHECK-IN PAGE START -->
