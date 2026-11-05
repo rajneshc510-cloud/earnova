@@ -285,6 +285,187 @@ body *, button, .nav-btn, section, div, nav {
       </div>
    </section>
    <!-- SPIN PAGE END -->
+
+    
+<!-- EARNOVA PREMIUM SCRATCH & WIN PAGE -->
+<section id="scratch" class="tab-content hidden">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+
+    <button onclick="showTab('dashboard')"
+      class="mb-6 text-teal-700 font-bold">
+      ← Back to Home
+    </button>
+
+    <div class="text-center mb-8">
+      <span class="text-teal-600 font-bold tracking-widest">
+        EARNOVA REWARDS
+      </span>
+      <h1 class="text-4xl font-extrabold text-slate-800 mt-2">
+        Scratch <span class="text-teal-600">& Win!</span>
+      </h1>
+      <p class="text-slate-500 mt-2">
+        Scratch the card and reveal your reward.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10 text-center">
+
+      <div class="mb-6">
+        <p class="text-slate-500 font-semibold">TODAY'S REWARD</p>
+        <div class="text-5xl font-black text-amber-500 mt-3">
+          ₹0.40
+        </div>
+      </div>
+
+      <div class="relative max-w-md mx-auto rounded-2xl overflow-hidden"
+           style="height:220px; touch-action:none;">
+
+        <div class="absolute inset-0 flex flex-col items-center justify-center
+                    bg-gradient-to-br from-slate-900 via-teal-800 to-slate-950
+                    text-white">
+          <div class="text-5xl mb-3">🏆</div>
+          <h2 class="text-3xl font-black text-amber-400">₹0.40</h2>
+          <p class="text-sm mt-2">Congratulations!</p>
+        </div>
+
+        <canvas id="realScratchCanvas"
+          width="500" height="220"
+          class="absolute inset-0 w-full h-full"
+          style="touch-action:none; cursor:crosshair;">
+        </canvas>
+
+      </div>
+
+      <p id="scratch-status-msg"
+         class="mt-6 text-slate-600 font-semibold">
+        ✨ Scratch the card to reveal your reward!
+      </p>
+
+      <div class="mt-6 bg-teal-50 rounded-xl p-4 text-sm text-teal-800">
+        🎁 One free scratch card every day.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  let initialized = false;
+  let completed = false;
+
+  window.initEarnovaScratch = function () {
+    const canvas = document.getElementById('realScratchCanvas');
+    const status = document.getElementById('scratch-status-msg');
+
+    if (!canvas || initialized) return;
+
+    initialized = true;
+    completed = false;
+
+    const ctx = canvas.getContext('2d');
+    const today = new Date().toDateString();
+
+    if (localStorage.getItem('earnova_last_scratch') === today) {
+      canvas.style.display = 'none';
+      status.textContent = '⏳ You have already used today’s card. Come back tomorrow!';
+      return;
+    }
+
+    const gradient = ctx.createLinearGradient(0, 0, 500, 220);
+    gradient.addColorStop(0, '#087E8B');
+    gradient.addColorStop(0.5, '#064B59');
+    gradient.addColorStop(1, '#061438');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 500, 220);
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 28px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('✨ SCRATCH HERE ✨', 250, 115);
+
+    let drawing = false;
+
+    function scratch(e) {
+      if (!drawing || completed) return;
+
+      e.preventDefault();
+
+      const rect = canvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (500 / rect.width);
+      const y = (e.clientY - rect.top) * (220 / rect.height);
+
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 28, 0, Math.PI * 2);
+      ctx.fill();
+
+      checkProgress();
+    }
+
+    function checkProgress() {
+      const pixels = ctx.getImageData(0, 0, 500, 220).data;
+      let transparent = 0;
+
+      for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i] < 10) transparent++;
+      }
+
+      if (transparent / (pixels.length / 4) > 0.40) {
+        completeScratch();
+      }
+    }
+
+    async function completeScratch() {
+      if (completed) return;
+      completed = true;
+
+      localStorage.setItem('earnova_last_scratch', today);
+
+      canvas.style.transition = 'opacity 0.7s';
+      canvas.style.opacity = '0';
+
+      status.textContent = '🎉 Congratulations! ₹0.40 reward unlocked!';
+
+      if (typeof addRewardToWallet === 'function') {
+        await addRewardToWallet(0.40);
+      } else {
+        let balance = Number(
+          localStorage.getItem('earnova_saved_balance') || 0
+        );
+        balance += 0.40;
+        localStorage.setItem('earnova_saved_balance', balance.toFixed(2));
+      }
+    }
+
+    canvas.addEventListener('pointerdown', e => {
+      drawing = true;
+      canvas.setPointerCapture(e.pointerId);
+      scratch(e);
+    });
+
+    canvas.addEventListener('pointermove', scratch);
+
+    canvas.addEventListener('pointerup', () => drawing = false);
+    canvas.addEventListener('pointercancel', () => drawing = false);
+    canvas.addEventListener('lostpointercapture', () => drawing = false);
+  };
+
+  const previousShowTab = window.showTab;
+
+  window.showTab = function(tabName) {
+    if (typeof previousShowTab === 'function') {
+      previousShowTab(tabName);
+    }
+
+    if (tabName === 'scratch') {
+      setTimeout(window.initEarnovaScratch, 100);
+    }
+  };
+})();
+</script>
+
    
    <!-- DAILY CHECK-IN PAGE START -->
    <section id="checkin" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
