@@ -19,6 +19,11 @@
         }
     </script>
    <style>
+       /* Mobile Touch Direct Fix */
+body *, button, .nav-btn, section {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+}
        .relative, .absolute {
     pointer-events: auto !important;
 }
