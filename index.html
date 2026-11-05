@@ -1111,31 +1111,41 @@ body *, button, .nav-btn, section, div, nav {
         document.getElementById('taskPopup').classList.add('hidden');
         document.getElementById('taskPopup').classList.remove('flex');
     }
+    
+window.addRewardToWallet = async function(amount) {
+    if (auth.currentUser) {
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        const snap = await getDoc(userRef);
 
-    // Helper function to add balance to Firebase Firestore or localStorage
-    async function addRewardToWallet(amount) {
-        if (auth.currentUser) {
-            try {
-                const userRef = doc(db, "users", auth.currentUser.uid);
-                const snap = await getDoc(userRef);
-                let currentBal = 0;
-                if (snap.exists()) {
-                    currentBal = Number(snap.data().walletBalance || 0);
-                }
-                await updateDoc(userRef, {
-                    walletBalance: currentBal + amount
-                });
-            } catch (err) {
-                console.error("Firestore balance update error:", err);
-            }
-        } else {
-            let currentBal = parseFloat(localStorage.getItem('earnova_saved_balance')) || 0;
-            let newBal = currentBal + amount;
-            localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
-            let walletDisplay = document.getElementById('wallet-display');
-            if (walletDisplay) walletDisplay.innerText = newBal.toFixed(2);
+        let currentBal = 0;
+
+        if (snap.exists()) {
+            currentBal = Number(snap.data().walletBalance || 0);
+        }
+
+        await updateDoc(userRef, {
+            walletBalance: currentBal + amount
+        });
+
+    } else {
+        let currentBal = Number(
+            localStorage.getItem('earnova_saved_balance') || 0
+        );
+
+        let newBal = currentBal + amount;
+
+        localStorage.setItem(
+            'earnova_saved_balance',
+            newBal.toFixed(2)
+        );
+
+        const walletDisplay = document.getElementById('wallet-display');
+
+        if (walletDisplay) {
+            walletDisplay.innerText = newBal.toFixed(2);
         }
     }
+};
 
     // --- SPIN LOGIC ---
     const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
@@ -1226,7 +1236,7 @@ body *, button, .nav-btn, section, div, nav {
         btn.textContent = 'Claimed Today ✓';
         btn.classList.add('bg-gray-400', 'cursor-not-allowed');
 
-        await addRewardToWallet(reward);
+        await window.addRewardToWallet(reward);
     }
 
     // --- SCRATCH CARD CANVAS LOGIC WITH 24-HOUR LIMIT ---
