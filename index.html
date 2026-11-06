@@ -1337,6 +1337,31 @@ window.addRewardToWallet = async function(amount) {
     window.showTab('dashboard');
     initScratchCanvas();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const scratchBox = document.querySelector('.relative.rounded-3xl'); // ya aap apne card div ko ek id de sakte hain jaise id="scratchCardBox"
+    
+    if (scratchBox) {
+        scratchBox.addEventListener('click', async function() {
+            let today = new Date().toDateString();
+            if (localStorage.getItem('earnova_scratch_claimed') === today) {
+                alert('Aaj ka scratch reward pehle hi mil chuka hai!');
+                return;
+            }
+
+            // Reward amount (jaise ₹0.40 ya random)
+            let reward = 0.40;
+            localStorage.setItem('earnova_scratch_claimed', today);
+
+            // Wallet mein add karne ka function call karein
+            if (typeof addRewardToWallet === 'function') {
+                await addRewardToWallet(reward);
+            }
+
+            alert('🎉 Badhai ho! Aapne ₹' + reward.toFixed(2) + ' jeet liye hain aur wallet mein add ho gaye hain.');
+        });
+    }
+});    
     
 </script>
 
