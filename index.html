@@ -564,26 +564,22 @@ body *, button, .nav-btn, section, div, nav {
 
       </div>
    </section>
-
-   <script>
+     <script>
       // Initialize Refer & Earn Real Logic
       document.addEventListener("DOMContentLoaded", function() {
-          // Check URL for referral parameter (e.g. ?ref=XYZ)
           const urlParams = new URLSearchParams(window.location.search);
           const refCode = urlParams.get('ref');
           
           if(refCode) {
-              // If someone opened via referral link, increment stats locally for simulation
               let totalInvited = parseInt(localStorage.getItem('earnova_invited') || '0') + 1;
               let totalActive = parseInt(localStorage.getItem('earnova_active') || '0') + 1;
-              let totalEarned = parseFloat(localStorage.getItem('earnova_earned') || '0.00') + 5.00; // ₹5 per referral reward
+              let totalEarned = parseFloat(localStorage.getItem('earnova_earned') || '0.00') + 5.00;
               
               localStorage.setItem('earnova_invited', totalInvited);
               localStorage.setItem('earnova_active', totalActive);
               localStorage.setItem('earnova_earned', totalEarned.toFixed(2));
           }
 
-          // Load stats into UI
           let invited = localStorage.getItem('earnova_invited') || '0';
           let active = localStorage.getItem('earnova_active') || '0';
           let earned = localStorage.getItem('earnova_earned') || '0.00';
@@ -592,11 +588,10 @@ body *, button, .nav-btn, section, div, nav {
           document.getElementById('stat-active').innerText = active;
           document.getElementById('stat-earned').innerText = '₹' + earned;
 
-          // Set User Unique Referral Link
-          let myRefLink = "https://rajneshc510-cloud.github.io/earnova/?ref=RAJNESH_" + Math.floor(1000 + Math.random() * 9000);
+          let myRefLink = "https://rajneshc510-cloud.github.io/earnova/?ref=RAJNESH_510";
           document.getElementById('userInviteLink').value = myRefLink;
 
-          // Populate Real Leaderboard
+          // Clean Leaderboard (Only Real User / No Fake Names)
           let leaderboardHTML = `
               <div class="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100">
                   <div class="flex items-center gap-3">
@@ -608,16 +603,6 @@ body *, button, .nav-btn, section, div, nav {
                   </div>
                   <span class="font-black text-amber-600 text-xs md:text-sm">₹${earned}</span>
               </div>
-              <div class="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100">
-                  <div class="flex items-center gap-3">
-                      <span class="w-6 h-6 rounded-full bg-gray-200 text-slate-700 font-bold text-xs flex items-center justify-center">2</span>
-                      <div>
-                          <h4 class="text-xs md:text-sm font-bold text-slate-700">Aarav K.</h4>
-                          <p class="text-[10px] text-gray-400">45 Friends Invited</p>
-                      </div>
-                  </div>
-                  <span class="font-black text-slate-600 text-xs md:text-sm">₹225.00</span>
-              </div>
           `;
           document.getElementById('leaderboardList').innerHTML = leaderboardHTML;
       });
@@ -627,7 +612,7 @@ body *, button, .nav-btn, section, div, nav {
           linkInput.select();
           linkInput.setSelectionRange(0, 99999);
           navigator.clipboard.writeText(linkInput.value);
-          alert("Referral link copied successfully! Share with friends.");
+          alert("Referral link copied successfully!");
       }
    </script>
     
