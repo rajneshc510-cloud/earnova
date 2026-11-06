@@ -787,18 +787,14 @@ body *, button, .nav-btn, section, div, nav {
     });
 
     window.copyReferralLink = function() {
-        const linkInput = document.getElementById('referral-link');
-        if (linkInput && linkInput.value && linkInput.value !== "Login to get your link...") {
-            linkInput.select();
-            navigator.clipboard.writeText(linkInput.value).then(() => {
-                const copyBtn = document.getElementById('copy-btn');
-                copyBtn.innerText = "Copied! ✓";
-                setTimeout(() => { copyBtn.innerText = "Copy Link"; }, 2000);
-            });
-        } else {
-            alert("Pehle login karein!");
-        }
-    };
+    const linkInput = document.getElementById('userInviteLink');
+    if(linkInput) {
+        linkInput.select();
+        linkInput.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(linkInput.value);
+        alert("Referral link copied successfully!");
+    }
+};
 
     let startedTasks = [];
     window.startAppTask = async function(rewardAmount, taskUrl) {
