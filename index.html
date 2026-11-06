@@ -557,15 +557,20 @@ body *, button, .nav-btn, section, div, nav {
       // Initialize Refer Link
       document.addEventListener("DOMContentLoaded", function() {
           let myRefLink = "https://rajneshc510-cloud.github.io/earnova/?ref=RAJNESH_510";
-          document.getElementById('userInviteLink').value = myRefLink;
+          const linkInput = document.getElementById('userInviteLink');
+          if(linkInput) {
+              linkInput.value = myRefLink;
+          }
       });
 
       function copyReferralLink() {
           const linkInput = document.getElementById('userInviteLink');
-          linkInput.select();
-          linkInput.setSelectionRange(0, 99999);
-          navigator.clipboard.writeText(linkInput.value);
-          alert("Referral link copied successfully!");
+          if(linkInput) {
+              linkInput.select();
+              linkInput.setSelectionRange(0, 99999);
+              navigator.clipboard.writeText(linkInput.value);
+              alert("Referral link copied successfully!");
+          }
       }
    </script>
     
