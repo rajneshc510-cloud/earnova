@@ -286,43 +286,39 @@ body *, button, .nav-btn, section, div, nav {
    </section>
    <!-- SPIN PAGE END -->
 
-  <!-- SCRATCH CARD PAGE START -->
-   <section id="scratch" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
-      <div class="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6 md:p-8 text-center space-y-6 overflow-hidden">
+<!-- SCRATCH CARD PAGE START (COMPACT MOBILE VIEW) -->
+   <section id="scratch" class="tab-content hidden max-w-md mx-auto px-4 py-3">
+      <div class="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 p-4 text-center space-y-3 overflow-hidden">
         
-        <div class="absolute -top-20 -right-20 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none"></div>
-
         <div class="flex justify-start">
-            <button onclick="showTab('dashboard')" class="text-[#087e8b] font-extrabold text-sm hover:underline">
-              ← Back to Home
+            <button onclick="showTab('dashboard')" class="text-[#087e8b] font-bold text-xs hover:underline">
+              ← Back
             </button>
         </div>
 
-        <div class="relative z-10">
-            <span class="text-[#087e8b] font-extrabold tracking-widest text-xs uppercase">EARNOVA REWARDS</span>
-            <h2 class="text-3xl font-black text-slate-800 mt-1">Scratch <span class="text-[#087e8b]">& Win</span></h2>
-            <p class="text-gray-500 text-sm mt-1">Card par click karke apna reward turant jeetein!</p>
+        <div class="relative z-10 -mt-2">
+            <span class="text-[#087e8b] font-black tracking-wider text-[10px] uppercase">EARNOVA REWARDS</span>
+            <h2 class="text-xl font-black text-slate-800 leading-tight">Scratch <span class="text-[#087e8b]">& Win</span></h2>
+            <p class="text-gray-500 text-[11px] mt-0.5">Card par click karke apna reward jeetein!</p>
         </div>
 
-        <!-- TAP TO SCRATCH CARD BOX -->
-        <div class="relative z-10 bg-white rounded-2xl p-4 shadow-sm border border-gray-100 max-w-sm mx-auto">
-            <p class="font-extrabold text-gray-600 text-sm mb-3">YOUR DAILY REWARD</p>
+        <!-- COMPACT TAP TO SCRATCH CARD BOX -->
+        <div class="relative z-10 bg-gray-50 rounded-xl p-3 border border-gray-100 max-w-xs mx-auto">
+            <p class="font-bold text-gray-500 text-[10px] mb-2 uppercase tracking-wider">YOUR DAILY REWARD</p>
             
-            <div id="tapScratchCard" onclick="claimTapScratch()" class="relative w-full aspect-[4/3] rounded-2xl shadow-lg overflow-hidden border-2 border-amber-400 bg-gradient-to-br from-slate-900 via-[#087E8B] to-slate-900 flex flex-col items-center justify-center p-4 text-center cursor-pointer transition-transform transform active:scale-95">
+            <div id="tapScratchCard" onclick="claimTapScratch()" class="relative w-full aspect-[16/9] rounded-xl shadow-md overflow-hidden border-2 border-amber-400 bg-gradient-to-br from-slate-900 via-[#087E8B] to-slate-900 flex flex-col items-center justify-center p-3 text-center cursor-pointer transition-transform transform active:scale-95">
                 <div class="absolute inset-0 bg-white/5 opacity-50"></div>
                 <div class="relative z-10">
-                    <span class="text-4xl mb-2 block">🎁</span>
-                    <h3 class="text-xl font-black text-amber-300 tracking-wider">TAP TO REVEAL</h3>
-                    <p class="text-xs text-cyan-100 mt-1">Click here to claim reward</p>
-                    <div class="text-lg mt-2">✨ 💰 ✨</div>
+                    <span class="text-2xl mb-1 block">🎁</span>
+                    <h3 class="text-base font-black text-amber-300 tracking-wider">TAP TO REVEAL</h3>
+                    <p class="text-[10px] text-cyan-100 mt-0.5">Click here to claim reward</p>
                 </div>
             </div>
         </div>
 
-        <p id="scratch-status-msg" class="relative z-10 font-bold text-amber-600 text-sm">🎁 Card par click karein aur reward wallet mein paye.</p>
+        <p id="scratch-status-msg" class="relative z-10 font-bold text-amber-600 text-[11px]">🎁 Card par click karein aur wallet mein paye.</p>
         
-        <div class="bg-teal-50 text-[#087e8b] rounded-xl p-3 text-xs font-semibold">
+        <div class="bg-teal-50 text-[#087e8b] rounded-lg p-2 text-[10px] font-semibold">
             🎁 Ek free reward har 24 ghante mein milta hai.
         </div>
 
