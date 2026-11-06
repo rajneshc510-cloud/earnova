@@ -25,7 +25,7 @@ body *, button, .nav-btn, section, div, nav {
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent;
 }
-       .relative, .absolute {
+        .relative, .absolute {
     pointer-events: auto !important;
 }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
@@ -286,215 +286,49 @@ body *, button, .nav-btn, section, div, nav {
    </section>
    <!-- SPIN PAGE END -->
 
-<style>
-/* EARNOVA RESPONSIVE SCRATCH PAGE */
+   <!-- SCRATCH CARD PAGE START -->
+   <section id="scratch" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
+      <div class="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6 md:p-8 text-center space-y-6 overflow-hidden">
+        
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
-#scratch {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 24px 16px 40px;
-}
-
-#scratch .scratch-wrapper {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-#scratch .scratch-heading {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-#scratch .scratch-heading h1 {
-  font-size: clamp(28px, 5vw, 44px);
-  font-weight: 900;
-  line-height: 1.2;
-  margin: 12px 0;
-  color: #172033;
-}
-
-#scratch .scratch-heading p {
-  font-size: clamp(14px, 2vw, 18px);
-  color: #64748b;
-}
-
-#scratch .scratch-box {
-  width: 100%;
-  max-width: 580px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 24px;
-  padding: 28px 24px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#scratch .scratch-card {
-  width: 100%;
-  max-width: 380px;
-  min-height: 190px;
-  margin: 22px auto 0;
-  padding: 22px 14px;
-  box-sizing: border-box;
-  border-radius: 22px;
-  background: linear-gradient(
-    135deg,
-    #061438,
-    #087e8b,
-    #061438
-  );
-  border: 2px solid #00d5c5;
-  box-shadow: 0 10px 25px rgba(8,126,139,0.22);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease;
-  cursor: pointer;
-}
-
-#scratch .scratch-card:active {
-  transform: scale(0.97);
-}
-
-#scratch .scratch-card h2 {
-  font-size: clamp(23px, 4vw, 30px);
-  color: #ffd65a;
-  font-weight: 900;
-  margin: 12px 0;
-}
-
-#scratch .scratch-card p {
-  color: #d7fffa;
-  font-size: 15px;
-}
-
-#scratch .scratch-gift {
-  font-size: 46px;
-}
-
-#scratch .scratch-result {
-  padding: 20px 10px;
-}
-
-#scratch .scratch-result h2 {
-  font-size: clamp(36px, 6vw, 48px);
-  color: #e6a817;
-  font-weight: 900;
-}
-
-#scratch .scratch-status {
-  font-size: 14px;
-  margin-top: 20px;
-  color: #64748b;
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  #scratch {
-    padding: 18px 14px 30px;
-  }
-
-  #scratch .scratch-heading {
-    margin-bottom: 20px;
-  }
-
-  #scratch .scratch-box {
-    padding: 22px 15px;
-    border-radius: 20px;
-  }
-
-  #scratch .scratch-card {
-    max-width: 320px;
-    min-height: 175px;
-    padding: 18px 12px;
-    margin-top: 18px;
-  }
-
-  #scratch .scratch-gift {
-    font-size: 38px;
-  }
-
-  #scratch .scratch-status {
-    font-size: 13px;
-  }
-}
-</style>
-
-<section id="scratch" class="tab-content hidden">
-  <div class="scratch-wrapper">
-
-    <button onclick="showTab('dashboard')"
-      style="color:#087e8b;font-weight:800;margin-bottom:24px;">
-      ← Back to Home
-    </button>
-
-    <div class="scratch-heading">
-      <div style="color:#087e8b;font-weight:800;
-                  letter-spacing:3px;font-size:14px;">
-        EARNOVA REWARDS
-      </div>
-
-      <h1>
-        Scratch <span style="color:#087e8b;">& Win</span>
-      </h1>
-
-      <p>Tap the card and win exciting rewards!</p>
-    </div>
-
-    <div class="scratch-box">
-
-      <p style="font-weight:800;color:#64748b;
-                font-size:16px;">
-        YOUR DAILY REWARD
-      </p>
-
-      <div id="tap-reward-card"
-           class="scratch-card"
-           onclick="earnovaTapScratch()">
-
-        <div class="scratch-gift">🎁</div>
-
-        <h2>TAP TO REVEAL</h2>
-
-        <p>Your lucky reward is waiting!</p>
-
-        <div style="font-size:25px;margin-top:10px;">
-          ✨ 💰 ✨
+        <div class="flex justify-start">
+            <button onclick="showTab('dashboard')" class="text-[#087e8b] font-extrabold text-sm hover:underline">
+              ← Back to Home
+            </button>
         </div>
+
+        <div class="relative z-10">
+            <span class="text-[#087e8b] font-extrabold tracking-widest text-xs uppercase">EARNOVA REWARDS</span>
+            <h2 class="text-3xl font-black text-slate-800 mt-1">Scratch <span class="text-[#087e8b]">& Win</span></h2>
+            <p class="text-gray-500 text-sm mt-1">Card par ungli ghumakar scratch karein aur reward jeetein!</p>
+        </div>
+
+        <div class="relative z-10 bg-white rounded-2xl p-4 shadow-sm border border-gray-100 max-w-sm mx-auto">
+            <p class="font-extrabold text-gray-600 text-sm mb-3">YOUR DAILY REWARD</p>
+            
+            <div class="relative w-full aspect-[4/3] rounded-2xl shadow-inner overflow-hidden border-2 border-amber-400 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                    <span class="text-3xl mb-1">🏆</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Badhai ho! Aap jeete hain</span>
+                    <span class="text-4xl font-black text-emerald-700 my-1">₹0.40</span>
+                    <p class="text-xs font-bold text-gray-500">Wallet mein add ho jayega</p>
+                </div>
+                <canvas id="realScratchCanvas" width="320" height="240" class="absolute inset-0 w-full h-full cursor-crosshair z-20 touch-none"></canvas>
+            </div>
+        </div>
+
+        <p id="scratch-status-msg" class="relative z-10 font-bold text-amber-600 text-sm">🎁 Card ko scratch karke reward reveal karein.</p>
+        
+        <div class="bg-teal-50 text-[#087e8b] rounded-xl p-3 text-xs font-semibold">
+            🎁 Ek free scratch card har 24 ghante mein milta hai.
+        </div>
+
       </div>
-
-      <div id="tap-result" class="scratch-result hidden">
-        <div style="font-size:45px;">🏆</div>
-
-        <p style="color:#64748b;font-weight:800;">
-          CONGRATULATIONS!
-        </p>
-
-        <h2 id="tap-win-amount">₹0.00</h2>
-
-        <p style="color:#087e8b;font-weight:700;">
-          Reward added to your wallet!
-        </p>
-      </div>
-
-      <p id="tap-status" class="scratch-status">
-        🎁 Tap the card to reveal your reward.
-      </p>
-
-      <div style="background:#e8f8f6;color:#087e8b;
-                  border-radius:12px;padding:12px;
-                  margin-top:18px;font-size:13px;">
-        🎁 One free reward every day.
-      </div>
-
-    </div>
-  </div>
-</section>
-
-   
+   </section>
+   <!-- SCRATCH CARD PAGE END -->
+    
    <!-- DAILY CHECK-IN PAGE START -->
    <section id="checkin" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
       
@@ -666,8 +500,7 @@ body *, button, .nav-btn, section, div, nav {
                     <p class="text-[11px] text-gray-500 font-medium">Free Demat Account</p>
                     <ul id="terms-upstox" class="hidden">
                         <li>Start button par click karke Upstox app install karein aur basic details se register karein.</li>
-                        <li>Aadhaar aur PAN card details daal kar apna KYC poora karein.</li>
-                        <li>Aadhaar OTP ke zariye e-Sign complete karein.</li>
+                        <li>PAN card details daal kar apna KYC poora karein.</li>
                         <li>Account approval hone par ₹180 ka reward aapke wallet mein add ho jayega.</li>
                     </ul>
                 </div>
@@ -739,7 +572,7 @@ body *, button, .nav-btn, section, div, nav {
     </section>
     
    <!-- WALLET TAB -->
-    <section id="wallet" class="tab-content hidden p-4 max-w-2xl mx-auto w-full">
+   <section id="wallet" class="tab-content hidden p-4 max-w-2xl mx-auto w-full">
         <h2 class="text-xl md:text-2xl font-bold text-[#087E8B] mb-4 text-center">Wallet & Withdrawals</h2>
         
         <div class="bg-gradient-to-br from-[#087E8B] to-[#054e56] rounded-3xl p-5 md:p-8 text-white shadow-xl mb-6 relative overflow-hidden border border-teal-600/30">
@@ -805,7 +638,7 @@ body *, button, .nav-btn, section, div, nav {
                 Request Withdrawal
             </button>
         </div>
-    </section>
+   </section>
 
 </main>
 
@@ -1032,7 +865,6 @@ body *, button, .nav-btn, section, div, nav {
                     const data = docSnap.data();
                     const updateEl = (id, val) => { if(document.getElementById(id)) document.getElementById(id).innerText = val; };
                     updateEl('wallet-display', (data.walletBalance || 0).toFixed(2));
-                    updateEl('dashboard-balance', (data.walletBalance || 0).toFixed(2));
                     updateEl('pending-display', (data.pendingWithdrawals || 0).toFixed(2));
                 }
             });
@@ -1040,7 +872,7 @@ body *, button, .nav-btn, section, div, nav {
             if (localStorage.getItem("earnova_logged_in") === "true") {
                 document.getElementById('nav-login-btn').classList.add('hidden');
                 document.getElementById('user-profile-info').classList.remove('hidden');
-                document.getElementById('nav-profile-pic').src = "logo.png";
+                document.getElementById('nav-profile-pic').src = "https://www.svgrepo.com/show/498547/profile.svg";
                 let savedName = localStorage.getItem("earnova_user_name") || "Rajnesh Chauhan";
                 document.getElementById('popup-user-name').innerText = savedName;
                 document.getElementById('user-name-display').innerText = savedName;
@@ -1112,44 +944,32 @@ body *, button, .nav-btn, section, div, nav {
         document.getElementById('taskPopup').classList.remove('flex');
     }
     
-window.addRewardToWallet = async function(amount) {
-    if (auth.currentUser) {
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        const snap = await getDoc(userRef);
+    window.addRewardToWallet = async function(amount) {
+        if (auth.currentUser) {
+            const userRef = doc(db, "users", auth.currentUser.uid);
+            const snap = await getDoc(userRef);
 
-        let currentBal = 0;
+            let currentBal = 0;
+            if (snap.exists()) {
+                currentBal = Number(snap.data().walletBalance || 0);
+            }
 
-        if (snap.exists()) {
-            currentBal = Number(snap.data().walletBalance || 0);
+            await updateDoc(userRef, {
+                walletBalance: currentBal + amount
+            });
+        } else {
+            let currentBal = Number(localStorage.getItem('earnova_saved_balance') || 0);
+            let newBal = currentBal + amount;
+            localStorage.setItem('earnova_saved_balance', newBal.toFixed(2));
+
+            const walletDisplay = document.getElementById('wallet-display');
+            if (walletDisplay) {
+                walletDisplay.innerText = newBal.toFixed(2);
+            }
         }
-
-        await updateDoc(userRef, {
-            walletBalance: currentBal + amount
-        });
-
-    } else {
-        let currentBal = Number(
-            localStorage.getItem('earnova_saved_balance') || 0
-        );
-
-        let newBal = currentBal + amount;
-
-        localStorage.setItem(
-            'earnova_saved_balance',
-            newBal.toFixed(2)
-        );
-
-        const walletDisplay = document.getElementById('wallet-display');
-
-        if (walletDisplay) {
-            walletDisplay.innerText = newBal.toFixed(2);
-        }
-    }
-};
+    };
 
     // --- SPIN LOGIC ---
-    const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
-
     window.earnovaSpin = async function() {
         const today = new Date().toDateString();
         const result = document.getElementById('spinResult');
@@ -1201,6 +1021,7 @@ window.addRewardToWallet = async function(amount) {
     }
 
     // --- CHECK-IN LOGIC ---
+    const earnovaDailyRewards = [0.01, 0.02, 0.03, 0.05, 0.07, 0.08, 0.10];
     window.earnovaCheckin = async function() {
         const today = new Date().toDateString();
         const lastDate = localStorage.getItem('earnova_checkin_date');
@@ -1333,36 +1154,10 @@ window.addRewardToWallet = async function(amount) {
         }
     };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    window.showTab('dashboard');
-    initScratchCanvas();
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const scratchBox = document.querySelector('.relative.rounded-3xl'); // ya aap apne card div ko ek id de sakte hain jaise id="scratchCardBox"
-    
-    if (scratchBox) {
-        scratchBox.addEventListener('click', async function() {
-            let today = new Date().toDateString();
-            if (localStorage.getItem('earnova_scratch_claimed') === today) {
-                alert('Aaj ka scratch reward pehle hi mil chuka hai!');
-                return;
-            }
-
-            // Reward amount (jaise ₹0.40 ya random)
-            let reward = 0.40;
-            localStorage.setItem('earnova_scratch_claimed', today);
-
-            // Wallet mein add karne ka function call karein
-            if (typeof addRewardToWallet === 'function') {
-                await addRewardToWallet(reward);
-            }
-
-            alert('🎉 Badhai ho! Aapne ₹' + reward.toFixed(2) + ' jeet liye hain aur wallet mein add ho gaye hain.');
-        });
-    }
-});    
-    
+    document.addEventListener("DOMContentLoaded", () => {
+        window.showTab('dashboard');
+        initScratchCanvas();
+    });
 </script>
 
 </body>
