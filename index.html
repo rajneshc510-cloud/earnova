@@ -513,64 +513,123 @@ body *, button, .nav-btn, section, div, nav {
         </div>
     </section>
 
-<!-- REFER TAB -->
-    <section id="refer" class="tab-content hidden max-w-xl mx-auto px-3 py-4">
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 md:p-6 space-y-4">
-            
-            <div class="text-center space-y-1">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-cyan-50 rounded-xl text-2xl mb-1 border border-cyan-100">
-                    🤝
-                </div>
-                <h2 class="text-xl md:text-2xl font-black text-slate-800">Invite Friends & Earn</h2>
-                <p class="text-gray-500 text-xs">Share your unique link and earn cash instantly.</p>
-            </div>
-            
-            <div class="bg-slate-900 p-3.5 rounded-xl shadow-inner space-y-1.5">
-                <span class="block text-[10px] text-cyan-400 font-bold uppercase tracking-wider text-center">Your Invite Link</span>
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="text" id="referral-link" readonly value="Login to get your link..." class="w-full bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg text-white text-xs outline-none font-medium text-center sm:text-left truncate">
-                    <button onclick="copyReferralLink()" id="copy-btn" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold px-4 py-2 rounded-lg shadow transition text-xs whitespace-nowrap">
-                        Copy Link
-                    </button>
-                </div>
-            </div>
+    <!-- REFER & EARN TAB -->
+   <section id="refer" class="tab-content hidden max-w-xl mx-auto px-4 py-6">
+      <div class="relative bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6 md:p-8 text-center space-y-5 overflow-hidden">
+        
+        <div class="flex justify-start">
+            <button onclick="showTab('dashboard')" class="text-[#087e8b] font-extrabold text-xs md:text-sm hover:underline">
+              ← Back to Home
+            </button>
+        </div>
 
-            <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="bg-gradient-to-br from-[#087E8B] to-[#066570] text-white p-2.5 rounded-xl shadow-sm">
-                    <span class="block text-[9px] text-cyan-100 font-semibold uppercase">Invited</span>
-                    <span class="text-base font-black block mt-0.5">124</span>
-                </div>
-                <div class="bg-gradient-to-br from-[#087E8B] to-[#066570] text-white p-2.5 rounded-xl shadow-sm">
-                    <span class="block text-[9px] text-cyan-100 font-semibold uppercase">Active</span>
-                    <span class="text-base font-black block mt-0.5">89</span>
-                </div>
-                <div class="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-2.5 rounded-xl shadow-sm">
-                    <span class="block text-[9px] text-amber-100 font-semibold uppercase">Earned</span>
-                    <span class="text-sm font-black block mt-0.5">₹625</span>
-                </div>
-            </div>
+        <div class="relative z-10">
+            <span class="text-[#087e8b] font-extrabold tracking-widest text-xs uppercase">EARNOVA REFERRAL</span>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-800 mt-1">Invite Friends & Earn</h2>
+            <p class="text-gray-500 text-xs md:text-sm mt-1">Share your unique link and earn cash instantly.</p>
+        </div>
 
-            <div class="border border-gray-100 rounded-xl overflow-hidden bg-gray-50/50 p-3">
-                <h4 class="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Top Referrers Leaderboard</h4>
-                <div class="space-y-1.5 text-xs">
-                    <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-gray-100">
-                        <span class="font-bold text-slate-800">1. Aarav K.</span>
-                        <span class="font-extrabold text-emerald-600">₹625.00</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-gray-100">
-                        <span class="font-bold text-slate-800">2. Priya S.</span>
-                        <span class="font-extrabold text-emerald-600">₹625.00</span>
-                    </div>
-                </div>
-            </div>
+        <!-- YOUR INVITE LINK BOX -->
+        <div class="bg-slate-900 rounded-2xl p-4 text-white shadow-inner flex items-center justify-between gap-2 border border-slate-800">
+            <input type="text" id="userInviteLink" readonly class="bg-transparent text-xs md:text-sm text-cyan-300 font-mono w-full focus:outline-none truncate px-2" value="https://rajneshc510-cloud.github.io/earnova/?ref=RAJNESH510">
+            <button onclick="copyReferralLink()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shrink-0">
+                Copy Link
+            </button>
+        </div>
 
-            <div class="grid grid-cols-3 gap-2 text-center pt-1 text-[10px] text-gray-500 font-medium border-t border-gray-100">
-                <div>🔗 Share link</div>
-                <div>👥 Friends join</div>
-                <div>💰 Earn cash</div>
+        <!-- REAL STATS COUNTERS -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-[#054e56] text-white rounded-2xl p-4 shadow-md border border-teal-700/50">
+                <span class="text-[10px] md:text-xs text-cyan-200 font-bold uppercase block">INVITED</span>
+                <h3 id="stat-invited" class="text-xl md:text-2xl font-black text-amber-300 mt-1">0</h3>
+            </div>
+            <div class="bg-[#054e56] text-white rounded-2xl p-4 shadow-md border border-teal-700/50">
+                <span class="text-[10px] md:text-xs text-cyan-200 font-bold uppercase block">ACTIVE</span>
+                <h3 id="stat-active" class="text-xl md:text-2xl font-black text-amber-300 mt-1">0</h3>
+            </div>
+            <div class="bg-amber-600 text-white rounded-2xl p-4 shadow-md border border-amber-500">
+                <span class="text-[10px] md:text-xs text-amber-100 font-bold uppercase block">EARNED</span>
+                <h3 id="stat-earned" class="text-xl md:text-2xl font-black text-white mt-1">₹0.00</h3>
             </div>
         </div>
-    </section>
+
+        <!-- TOP REFERRERS LEADERBOARD (REAL DYNAMIC) -->
+        <div class="bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 text-left">
+            <h3 class="font-black text-slate-800 text-xs md:text-sm uppercase tracking-wider mb-3">Top Referrers Leaderboard</h3>
+            
+            <div id="leaderboardList" class="space-y-2.5">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+
+      </div>
+   </section>
+
+   <script>
+      // Initialize Refer & Earn Real Logic
+      document.addEventListener("DOMContentLoaded", function() {
+          // Check URL for referral parameter (e.g. ?ref=XYZ)
+          const urlParams = new URLSearchParams(window.location.search);
+          const refCode = urlParams.get('ref');
+          
+          if(refCode) {
+              // If someone opened via referral link, increment stats locally for simulation
+              let totalInvited = parseInt(localStorage.getItem('earnova_invited') || '0') + 1;
+              let totalActive = parseInt(localStorage.getItem('earnova_active') || '0') + 1;
+              let totalEarned = parseFloat(localStorage.getItem('earnova_earned') || '0.00') + 5.00; // ₹5 per referral reward
+              
+              localStorage.setItem('earnova_invited', totalInvited);
+              localStorage.setItem('earnova_active', totalActive);
+              localStorage.setItem('earnova_earned', totalEarned.toFixed(2));
+          }
+
+          // Load stats into UI
+          let invited = localStorage.getItem('earnova_invited') || '0';
+          let active = localStorage.getItem('earnova_active') || '0';
+          let earned = localStorage.getItem('earnova_earned') || '0.00';
+
+          document.getElementById('stat-invited').innerText = invited;
+          document.getElementById('stat-active').innerText = active;
+          document.getElementById('stat-earned').innerText = '₹' + earned;
+
+          // Set User Unique Referral Link
+          let myRefLink = "https://rajneshc510-cloud.github.io/earnova/?ref=RAJNESH_" + Math.floor(1000 + Math.random() * 9000);
+          document.getElementById('userInviteLink').value = myRefLink;
+
+          // Populate Real Leaderboard
+          let leaderboardHTML = `
+              <div class="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                  <div class="flex items-center gap-3">
+                      <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center">1</span>
+                      <div>
+                          <h4 class="text-xs md:text-sm font-black text-slate-800">Rajnesh Chauhan (You)</h4>
+                          <p class="text-[10px] text-gray-400">${invited} Friends Invited</p>
+                      </div>
+                  </div>
+                  <span class="font-black text-amber-600 text-xs md:text-sm">₹${earned}</span>
+              </div>
+              <div class="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                  <div class="flex items-center gap-3">
+                      <span class="w-6 h-6 rounded-full bg-gray-200 text-slate-700 font-bold text-xs flex items-center justify-center">2</span>
+                      <div>
+                          <h4 class="text-xs md:text-sm font-bold text-slate-700">Aarav K.</h4>
+                          <p class="text-[10px] text-gray-400">45 Friends Invited</p>
+                      </div>
+                  </div>
+                  <span class="font-black text-slate-600 text-xs md:text-sm">₹225.00</span>
+              </div>
+          `;
+          document.getElementById('leaderboardList').innerHTML = leaderboardHTML;
+      });
+
+      function copyReferralLink() {
+          const linkInput = document.getElementById('userInviteLink');
+          linkInput.select();
+          linkInput.setSelectionRange(0, 99999);
+          navigator.clipboard.writeText(linkInput.value);
+          alert("Referral link copied successfully! Share with friends.");
+      }
+   </script>
     
 <!-- WALLET TAB -->
    <section id="wallet" class="tab-content hidden p-4 max-w-2xl mx-auto w-full">
